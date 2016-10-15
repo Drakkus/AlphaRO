@@ -4,6 +4,7 @@ Disclaimer
 I did not coded this emulator.
 
 Read the following for more information.
+Works on Linux.
 
 v1.2.0 - 4th September 2008
 
@@ -122,3 +123,5 @@ once most of the unnecessary server code has been removed.
 --------------------------------------------------------------
 Dev Taulin Nakima
 --------------------------------------------------------------
+
+<img src="https://puu.sh/rKfTk/475eacf4f1.bmp"/>
