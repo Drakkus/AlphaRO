@@ -5,7 +5,7 @@ I did not coded this emulator.
 
 Read the following for more information.
 
-Last update: 
+v1.2.0 - 4th September 2008
 
 --------------------------------------------------------------
 Building
@@ -26,6 +26,14 @@ To add users:
 ```
 $ ./adduser
 ```
+Client:
+
+1. Open RagExe.exe with a hex editor and modify the IP on block EBAF8-EBB06 (15 bytes)
+2. Set the IP to your server's IP.
+3. Run the command: "RagExe.exe ragpassword"
+
+
+
 --------------------------------------------------------------
 Alpha Taulin Build Readme
 --------------------------------------------------------------
