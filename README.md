@@ -30,9 +30,11 @@ Client:
 
 1. Open RagExe.exe with a hex editor and modify the IP on block EBAF8-EBB06 (15 bytes)
 2. Set the IP to your server's IP.
-3. Run the command: "RagExe.exe ragpassword"
+3. Open Setup.exe and set your settings
+4. Open with 16 bits color: <img src="https://puu.sh/rKcmv/369960bd0e.png" />
+5. Run the command: "RagExe.exe ragpassword"
 
-
+If anything goes wrong, close RagExe.exe with Task Manager.
 
 --------------------------------------------------------------
 Alpha Taulin Build Readme
