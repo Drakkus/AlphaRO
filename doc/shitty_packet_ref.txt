@@ -1,0 +1,429 @@
+Ahira's RO Packet Doc v0.15
+So far discovered from checking RagEmu's source - if you can read code you can 
+figure this stuff out as much as I have.
+Big thanks and props to Mibz, Likefire and Lunar5 for adding sections for 
+packets I haven't fucked with yet. 
+Originally Based on RagEmu.v5.nap 
+-------------------------------------------------------------- 
+5 - 'response after initial connect which holds new servers (Quote from code)
+6 - ?? Some sort of timer or timer response ?? 
+7 - 'char data (Quote from code) 
+D - 'char selected (Quote from code)
+F - 'cur pos 
+06 = someone in your party next to you recovering hp (Acefalo) 
+08 - *SEND* message(party) (Frost2)
+14 - ?? Data ?? 
+15 - ?? Data ?? 
+17 - Monster packet (Update of location or new monster nearby previously unseen) 
+
+18 - ?? Additional monster packet? Code resembles 17 ?? 
+1B - ?? Data ?? 
+1C - Death of Monster or Player 
+1D - ?? Timer ?? 
+23 - ?? Item drop packet ?? - seems to continue fighting or go to pickup item 
+25 - Action packet (Stand/Sit)
+26 - Damage packet - ?? Player or Monster ?? 
+29 - Local chat packet (Different then 2A) 
+2A - Local chat packet (Different then 29) 
+2D - Essentially, this is sent to you when your character is now heading to 
+another area that is ON THE SAME server. That means you either: A) Warped Away 
+by An acolyte B) Use a Teleport function built-in to the bot (which I added to 
+mine), or C) Hit a Return to Save Point button (which I added to mine). (Lunar5) 
+
+2E - Essentially, this is sent to you when your character is now heading to 
+another area that is ON ANOTHER server. That means you either: A) Warped Away by 
+An acolyte B) Hit a Return to Save Point button (which I added to mine). 
+(Lunar5) 
+30 - Accessing a vending merchant (Mibz) 
+33 - Incoming whisper packet 
+36 - I've noticed that whenever God-Poing speaks, this is the header received by 
+the RO client. That's basically all I can say regarding this. (Lunar5) 
+38 - ?? Data ?? 
+39 - ?? Data ?? 
+3A - New item dropped packet 
+3C - ?? Data ?? 
+3D - Item removed from game world packet (Picked up by something) 
+3F - This heads the packets that tell you what items are on your character, 
+EXCLUDING equipped items. (Lunar5) - See bottom for example 1 explination. 
+40 - Same as Case 3F, cept this data tells you what items you have EQUIPPED on 
+yourself. (Lunar5) 
+4B - This is sent to you in response to your client having sent to the server a 
+request to use Warp Portal. Starting at byte 11, and for a total length of 16 
+bytes, is the first area which the server has saved for your Warp Portal. The 
+name of the area is in ASCII, followed by 00 bytes in the length of the name of 
+the area is less than 16 characters. Next, starting at byte 27 is the 2nd area 
+which the server has saved for your warp. Last, at byte 43 is the 3rd area. Now, 
+if one has lvl 8 Warp (which means only one area saved), it'll send ya that one 
+area, then, in place of the other 2 areas, instead of the names, it's all 00 
+bytes. The total length of this data is 58 bytes. (Lunar5) - See Note 1 at the 
+bottom for a trick with using this. 
+4C - Character info change stat (HP/MAXHP/SP/MAXSP/WEIGHT/MAXWEIGHT) 
+4D - Character info change stat (XP/J-XP/XPMAX/J-XPMAX) 
+4F - ?? Data ?? 
+59 - ?? Data ?? 
+5C - ?? Data ?? 
+5F - ?? Data ?? 
+73 - ?? Data ?? 
+74 - ?? Data ?? 
+8C - *SEND* message(out loud) (Frost2)
+96 - *SEND* message(private) (Frost2)
+9D - ?? Data ?? 
+A0 - ?? Data ?? 
+A3 - ?? Data ?? 
+A5 - Party Chat packet 
+A7 - Use Item (Likefire) 
+AB - Header for skills info (Lunar5) 
+AC - ?? Data ?? 
+B0 - ?? Data ?? 
+B6 - ?? Data ?? 
+C9 - Sell packet (Mibz) 
+CD - ?? Data ?? 
+CE - ?? Data ?? 
+D5 - ?? Data ?? 
+D6 - ?? Data ?? 
+D9 - HP Update packet 
+DA - ?? Data ?? 
+DD - ?? Data ?? 
+E5 - someone trying to deal with you (Acefalo) 
+--------------------------------------------------------------------------- 
+Example 1 - Reading the recieved inventory packets (written by Lunar5): 
+You recieve this: A3 00 09 01 0F 0A 05 00 28 00 00 00 00 00 41 72 72 6F 77 14 0A 
+06 00 16 00 00 00 00 00 46 69 72 65 5F 41 72 72 6F 77 14 00 09 00 01 00 00 00 00 
+00 57 68 69 74 65 Ok, A3 - 64 = 3F, which everyone should've been able to figure 
+out for themselves. Now, notice the 5th byte sent, 0F. Just remember this value. 
+Now, notice the 9th packet, 28. This is the item quantity of the upcoming item. 
+If we now scroll down to the 15th byte, we have the Item's name, in ASCII. Here, 
+it is merely "Arrow". Now, remember that 5th byte, 0F, F = 15, right? Now, move 
+15 from this 5th byte (means we'll be looking at the 20th byte), this byte 
+happens to be the first byte after the end of the items name. This byte's value 
+is 14, which = 20. If we now go 20 from this byte, we'll notice it's the first 
+byte after the end of another item's name, and so on. I believe the 6th and 7th 
+bytes are the first item's "ID", which changes often when you log on, which 
+would explain why when healing from Red Pots, the same bytes aren't always sent 
+to the server. Lastly, take a look at bytes 3 and 4. It's 09 01. Now, let's 
+switch these 2 bytes around to get 01 09. This value now, 0109, is the length in 
+bytes of the entire non-equipped item data that is currently being sent to you. 
+------------------------------------------------------------------------------ 
+Note 1 - Warp Portal (written by Lunar5): 
+On a side note, there's a very interesting thing regarding Warp Portal. When you 
+send the original Warp Portal request (the first packet you send out), there are 
+5 bytes that are always unique: 1 is the lvl of your Warp Portal, 2 of them 
+represent the X coordinate you want the portal cast on, and 2 represent the Y 
+coordinate you want the portal cast on. I actually exploited this recently with 
+the bot, allowing me to cast Warp Portal ANYWHERE on the current map I was on, 
+without having to be near that place, by merely exploiting the bytes that tell 
+the server where to place the Warp Portal. 
+ 
+-----------------------------------------------------------------------------------------------
+Notes taken from conversations to be worked into better descriptions above
+<Frost2> i wrote down some packets that nobody will probably ever use
+<Frost2> 8C - message(out loud)
+<Frost2> 96 - message(private)
+<Frost2> 08 - message(party)
+<Frost2> thats sending to server
+<Ahira> yeah I need to put a better descrip on which packets are for sending and 
+which are for recieving
+<Ahira> lemmie throw those in
+<Frost2> k
+<Frost2> i got the sit down and stand up packets if you want those :P
+*** Wodan[playingXenogears] (BIHM20@067.ade0304.ade.iprimus.net.au) Quit (Quit: 
+::<<«·BRÜTA£·iCeSTORM·»>>:: v2.0.5.0 beta ©2002, Subbie's Dream Team)
+<Mibz> D9 is entering a chatroom
+<Ahira> sure, I'm trying to recreate the all-knowing packet doc so lemmie know
+<Frost2> k
+<Frost2> 89 00 00 00 00 00 03 - Stand
+<Frost2> 89 00 00 00 00 00 02 - Sit
+<Mibz> Woah, hold up
+<Mibz> The hell...
+<Frost2> :P
+<Mibz> NEvermind about D9
+<Frost2> lol
+<Frost2> donno how to shorten stand and sit
+<Ahira> looks like 89 is an action packet then, with a state variable being 
+passed
+<Frost2> yeah
+<Frost2> i got all the emotion packets down except the ctrl+ ones lol
+<Ahira> thats pure packet that hasen't been converted so it's 25 for the header 
+right?
+<Mibz> Okay, yeah. D9 enters a chat room. Format is D9 00 xx xx 00 00 00 00 00 
+00 00 00 00 00
+<Ahira> stand/sit I'm talking about
+<Mibz> D9 isn't converted
+<Mibz> Uh, the header wouldn't be 25
+<Frost2> thats the whole packet
+<Frost2> being sent
+<Mibz> Hrmm
+<Mibz> nm
+<Mibz> 25 would be
+<Ahira> waitaminute - H89 - H64 = H25 by my calc ... am I fucking this up?
+<Frost2> mibz dont worry im a newbie at packets too lol
+*** eVo]uT[oN (chengpsg@mcns77.docsis57.scvmaxonline.com.sg) has joined 
+#thegleek.com
+<eVo]uT[oN> !fs 
+<Mibz> Ahira, no you're not
+<Frost2> 89-64=25
+<Mibz> At first glance I didn't think it would be
+<Mibz> Frost, we're talking hex here
+*** Hirro (POPORING@d150-116-138.home.cgocable.net) has joined #thegleek.com
+<Frost2> then what am i talking about lol
+<Mibz> But yeah. For chat rooms
+<Mibz> Decimal
+<Ahira> yeah, I'm using the scientific calc, so unless I'm missing something I 
+should be doing this right
+<Frost2> should i start using hex from now on
+<Mibz> D9 00 xx 23 all the zeroes
+<Ahira> (of course on hex mode)
+<eVo]uT[oN> anybody got korean ID generator ????
+<Frost2> lol
+<Mibz> xx is unique on the chat room
+*** Hirro (POPORING@d150-116-138.home.cgocable.net) Quit (Quit: 
+http://www.gamingfrontier.com)
+<Frost2> im going on ro to see something real quick brb
+<eVo]uT[oN> anybody got korean ID generator --> the 1 that last time use to 
+register korean RO
+<Mibz> Ahira, go to #Mibz
+*** CI78527-A (jbiv@66.191.54.79) has joined #thegleek.com
+*** GleekBot sets mode: +b *!*jbiv@66.191.54.*
+*** CI78527-A was kicked by GleekBot (banned: perm)
+<Ahira> yo
+<Mibz> Okay
+<Mibz> Chat room packets. Made easy
+<Mibz> D9 00 xx 23 00 00 00 00 00 00 00 00 00 00
+<Mibz> xx is unique on chat room
+<Mibz> E3 00 closes the chat
+<Mibz> Gimme a sec and I'll sniff send/recv for talking in chat
+<Ahira> k
+<Mibz> Hrmmm
+<Mibz> Nothing received
+<Mibz> Only sent
+<Mibz> The other guy even talked...
+<Ahira> but again those aren't adjusted with the H64 right? so it's D9-64=75 
+right?
+<Mibz> Right
+<Mibz> Okay, for talking in chat
+<Mibz> 8C is unadjusted header
+<Mibz> 8C 00 10 00 4D 69 62 7A 20 3A 20 62 6C 61 68 00
+<Mibz> xx xx xx xx M I B Z : b l a h
+<Mibz> Now
+<Mibz> the 3rd byte changed each time
+<Ahira> I'm copying all this to the bottom of the doc to decipher later to make 
+sure I get it right
+<Mibz> Actually
+<Mibz> hold up
+<Mibz> Okay
+<Mibz> 3rd byte represents your message length
+<Ahira> no problem, I'm not actually adding this stuff in yet, just making logs 
+of whats told to me about this so I can clean it up and organize it later
+<Mibz> 0D = 1 char
+<Mibz> 0E = 2 chars
+<Mibz> etc
+<Ahira> I see it
+<Mibz> In my example it's 10 representing 4 chars. B L A H
+<Ahira> woah wait a sec hehe listin to this
+<Ahira> in that example...
+<Ahira> 10 would be the message length
+<Ahira> MIBZ : blah
+<Ahira> now thats 11 characters... but counting 00 as one character, 10 would = 
+11
+<Mibz> Yup
+<Mibz> Right
+<Mibz> Oh shit
+<Mibz> *Smack*
+<Ahira> lol
+<Mibz> 3rd byte includes your name
+<Ahira> u see it ;)
+<Ahira> <Mibz> In my example it's 10 representing 4 chars. B L A H
+<Ahira> is wrong then :)
+<Ahira> 10 represents your whole name, the spaces, colon and messahe
+<Mibz> SEND-> 0000 8C 00 0E 00 4D 69 62 7A 20 3A 20 62 62 00 ....Mibz : bb.
+<Mibz> 0E = 14
+<Ahira> correct :)
+<Mibz> And the 4 bytes infront
+<Mibz> The length of the packet itself
+<Mibz> So we've got 8C xx Length xx Name : message.
+<Mibz> and E3 00 closes the chat
+<Mibz> ON TO VENDING MERCHANTS
+<Ahira> lol
+<Ahira> this is pretty fun hehehe who said reverse enginerring wouldn't get u 
+anywhere lol
+<Mibz> SEND-> 0000 30 01 11 B6 03 00 0.....
+<Mibz> SEND-> 0000 30 01 39 B1 01 00 0.9...
+<Mibz> Two different merchants
+<Mibz> SEND-> 0000 30 01 F7 51 02 00 0..Q..
+<Mibz> SEND-> 0000 30 01 34 55 04 00 0.4U..
+<Mibz> Two merchs, second is 6 units left and 1 unit up from first one
+<Mibz> I don't see position in there anywhere
+<Mibz> I see three random bytes
+<Ahira> Length ^ ^ ^
+<Ahira> bah that got all formated wrong
+<Mibz> SEND-> 0000 30 01 F7 51 02 00 0..Q..
+<Mibz> SEND-> 0000 30 01 34 55 04 00 0.4U..
+<Ahira> well 1,2,6 columns are static it seemd for merchants
+<Mibz> Yup
+<Mibz> 30 01 xx xx xx 00
+<Mibz> xx xx xx can remain unknown for the time being
+<Mibz> I hope you're getting all this :)
+<Ahira> If I'm not, I've already got it added to the bottom of the doc ;)
+<Mibz> Okay
+<Mibz> On to buying from vending merchs
+<Ahira> I'm hard copying all this talk into the doc as we go over it.... I'll 
+clean it up in a bit
+<Ahira> for now just fire awayinfo and I'll help decipher what I can... and make 
+sure the doc's gonna get a piece of this
+<Ahira> u need me to work with you on this?
+<Mibz> I just want all this in one place
+<Ahira> I got a merchant with pretty high skills (although blacklisted on ro.pak 
+lol
+<Mibz> Nah, I got it with 16z pots
+<Mibz> SEND-> 0000 34 01 0C 00 BD 38 05 00 01 00 02 00 4....8......
+<Mibz> SEND-> 0000 34 01 0C 00 BD 38 05 00 02 00 02 00 4....8......
+<Mibz> Now
+<Mibz> 4th from last byte = quantity
+<Mibz> First I bought 1 red, then 2
+<Mibz> Lemme try buying two different items now
+<Ahira> <heh and I thought I was done with the doc for tonight :P > well least 
+we are getting a great start ;)
+<Mibz> Anytime you wanna leave, no problem. Just send me the htm file and I'll 
+update it and send it to you tomorrow
+<Mibz> I've been wanting to do this for awhile and am completely willing to put 
+in some work
+<Ahira> naw I'm here bro, but a little woozy ;) drugs are bad <-south park
+<Ahira> and I'd love to get as much info as we can in this so understanding what 
+to send and what to recieve is a piece of cake
+<Ahira> and btw bro, I'll be here at least another 2 hours, so lets knock some 
+of this stuff out
+<Ahira> :)
+<Mibz> SEND-> 0000 34 01 0C 00 70 02 03 00 01 00 05 00 4...p.......
+<Mibz> SEND-> 0000 34 01 0C 00 70 02 03 00 01 00 04 00 4...p.......
+<Mibz> SEND-> 0000 34 01 0C 00 70 02 03 00 02 00 05 00 4...p.......
+<Mibz> Okay here we go
+<Mibz> 2nd to last byte is position of item in vending slot
+<Mibz> NOW
+<Mibz> 02 is the first position
+<Mibz> SEND-> 0000 30 01 70 02 03 00 0.p...
+<Mibz> That's the merchant access packet. Notice any similarities?
+<Mibz> 34 01 0C 00 is the header
+<Mibz> 70 02 02 00 is the merchant ID
+<Mibz> 01 is the quantity
+<Mibz> 05 is the item position
+<Mibz> We have successfully decoded buying from vending merchants
+<Mibz> Just gotta find out if it can be sent from anywhere
+<Ahira> ok (whew got all that down as a record)
+<Mibz> Time for NPC buying
+<Mibz> Sec
+<Ahira> sure lol.... I'm like 1/2 figuring all this out but then I keep having 
+to update the doc - Iwant to use your descriptions of this
+<Mibz> <Mibz> 34 01 0C 00 is the header
+<Mibz> <Mibz> 70 02 02 00 is the merchant ID
+<Mibz> <Mibz> 01 is the quantity
+<Mibz> <Mibz> 05 is the item position
+<Mibz> That's all you need
+<Mibz> With 34 01 0C 00 70 02 03 00 01 00 05 00 4...p.......
+<Mibz> As the example packet
+<Mibz> Okay, for NPCs
+<Mibz> SEND-> 0000 9B 00 00 ...
+<Mibz> SEND-> 0000 90 00 96 CB 00 00 01 .......
+<Mibz> SEND-> 0000 C5 00 96 CB 00 00 00 .......
+<Mibz> First two enter vendor
+<Mibz> Last one selects "Buy" as the deal type
+<Mibz> They really aren't neccessary
+<Ahira> ok, lemmie ask this - why in the merchant is bit 3 different then in the 
+example , where bit 7 is...
+<Mibz> ????
+<Ahira> k check this
+<Ahira> <Mibz> 34 01 0C 00 is the header
+<Ahira> <Mibz> <Mibz> 70 02 02 00 is the merchant ID
+<Ahira> example : 34 01 0C 00 70 02 03 00 01 00 05 00
+<Mibz> That should be 70 02 03 00
+<Mibz> Human error
+<Ahira> ok so that should have been a 3... gotcha - I saw the number not match 
+up and it threw me
+<Mibz> I manually typed 70 02 03 00 and it was a typo
+<Mibz> Sorry
+<Mibz> Didn't even notice
+<Ahira> hehe sok, I just want to make sure we get this right
+<Mibz> C8 is buying from npc. It's a long one too
+<Mibz> SEND-> 0000 C8 00 1E 00 01 00 52 65 64 5F 50 6F 74 69 6F 6E 
+......Red_Potion
+<Mibz> SEND-> 0010 00 00 00 00 00 00 00 00 BA 01 00 00 74 EE ............t.
+<Mibz> 
+<Mibz> SEND-> 0000 C8 00 1E 00 02 00 52 65 64 5F 50 6F 74 69 6F 6E 
+......Red_Potion
+<Mibz> SEND-> 0010 00 00 00 00 00 00 31 04 00 00 D7 47 1F 21 ......1....G.! 
+<Mibz> 
+<Mibz> SEND-> 0000 C8 00 1E 00 01 00 53 63 61 72 6C 65 74 5F 50 6F 
+......Scarlet_Po
+<Mibz> SEND-> 0010 74 69 6F 6E 00 00 31 04 00 00 D7 47 1F 21 tion..1....G.!
+<Mibz> 
+<Mibz> SEND-> 0000 C8 00 1E 00 02 00 53 63 61 72 6C 65 74 5F 50 6F 
+......Scarlet_Po
+<Mibz> SEND-> 0010 74 69 6F 6E 00 00 52 00 68 FE 53 00 FF FF tion..R.h.S...
+<Mibz> Okay
+<Mibz> In order I bought: 1 red, 2 red, 1 scarlet, 2 scarlet
+<Mibz> It seems that the useful info ends at potion
+<Mibz> C8 00 1E 00 Quantity 00 Item Name
+<Mibz> What bothers me is how the endings of 2 red and 1 scarlet are the same 
+while red 1 and scarlet 2 are completely different
+<Ahira> thats probably the inventory control number
+<Mibz> SEND-> 0000 7E 00 1E CD AA 06 ~.....
+<Mibz> SEND-> 0000 C8 00 1E 00 01 00 52 65 64 5F 50 6F 74 69 6F 6E 
+......Red_Potion
+<Mibz> SEND-> 0010 00 00 00 00 00 00 31 04 00 00 D7 47 1F 21 ......1....G.!
+<Mibz> SEND-> 0000 94 00 94 8C 01 00 ......
+<Ahira> ever run beta6 and watch how the the location #'s it assigns items you 
+pick go to 255 before going back through the unused #'s?
+<Mibz> Yup
+<Mibz> I hated that
+<Mibz> In my version it would start at the first free spot
+<Ahira> thats how I plan it too - not worth the risk to get an off by 1 error 
+there
+<Mibz> SEND-> 0000 7E 00 75 D1 AC 06 ~.u...
+<Mibz> SEND-> 0000 C8 00 1E 00 01 00 52 65 64 5F 50 6F 74 69 6F 6E 
+......Red_Potion
+<Mibz> SEND-> 0010 00 00 00 00 00 00 52 00 68 FE 53 00 FF FF ......R.h.S...
+<Mibz> Godamn these npc packets suck
+<Mibz> I don't get it
+<Mibz> Woah
+<Mibz> Nevermind the 7E packet
+<Mibz> It's useless!
+<Mibz> SEND-> 0000 C8 00 1E 00 01 00 52 65 64 5F 50 6F 74 69 6F 6E 
+......Red_Potion
+<Mibz> SEND-> 0010 00 00 00 00 00 00 12 B0 58 67 8C 83 00 00 ........Xg....
+<Mibz> I got that this time though
+<Mibz> I need to figure out why....
+<Mibz> Why are they different
+<Mibz> At least we've got C8 00 as the header
+<Mibz> and byte 5 as the quantity
+<Ahira> the 0010 block... I see what you mean
+<Mibz> Funny thing is. It's always the same length. red potion is same length as 
+scarlett
+<Mibz> Scarlet just carried over into 0010. But nothing changes...
+<Mibz> Hey hey!
+<Mibz> SEND-> 0000 90 00 95 CB 00 00 01 .......
+<Mibz> SEND-> 0000 90 00 94 CB 00 00 01 .......
+<Mibz> Accessing an npc
+<Mibz> 90 00 = Header
+<Mibz> 95 = NPC ID
+<Mibz> CB 00 00 01 = Who knows
+<Mibz> CB 00 00 01 = Who knows
+<Mibz> CB might also be part of the ID
+<Mibz> But for every NPC in izlude it's CB
+<Ahira> hmmm I'm lookin over it
+<Mibz> SEND-> 0000 C8 00 1E 00 01 00 43 6F 74 74 6F 6E 5F 53 68 69 
+......Cotton_Shi
+<Mibz> SEND-> 0010 72 74 00 00 00 00 00 00 FF FF FF FF E3 13 rt............
+<Mibz> <Mibz> SEND-> 0000 C8 00 1E 00 01 00 52 65 64 5F 50 6F 74 69 6F 6E 
+......Red_Potion
+<Mibz> <Mibz> SEND-> 0010 00 00 00 00 00 00 12 B0 58 67 8C 83 00 00 
+........Xg....
+<Ahira> I'm thinking CB 00 00 01 might be checksum or a variable thats used for 
+different transactions
+<Mibz> Same header
+<Mibz> SEND-> 0000 C8 00 1E 00 01 00 4B 6E 69 66 65 5F 00 00 00 00 
+......Knife_....
+<Mibz> SEND-> 0010 00 00 00 00 00 00 00 00 FF FF FF FF E3 13 ..............
+<Mibz> Same header
+<Mibz> C8 00 1E 00 = Header
+<Mibz> 01 = Quantity
+<Mibz> 00 ---> = Item Name
+<Mibz> After that is anybody's guess

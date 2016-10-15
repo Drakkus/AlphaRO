@@ -1,0 +1,118 @@
+
+#!/bin/sh
+# Alpha starting script by rowla
+# modified by taulin
+
+PATH=./:$PATH
+
+L_SRV=login-server
+C_SRV=char-server
+M_SRV=map-server
+L_SRV_C=./conf/login_alpha.conf
+C_SRV_C=./conf/char_alpha.conf
+C_SRV_C2=./conf/inter_alpha.conf
+M_SRV_C=./conf/map_alpha.conf
+M_SRV_C2=./conf/battle_alpha.conf
+M_SRV_C3=./conf/atcommand_alpha.conf
+M_SRV_C4=./conf/script_alpha.conf
+M_SRV_C5=./conf/msg_alpha.conf
+M_SRV_C6=./conf/grf-files.txt
+
+print_start() {
+#	more << EOF
+echo "Alpha Starting..."
+echo "			(c) 2003 Alpha Project."
+echo "			URL:http://project-yare.de/"
+echo ""
+#echo "Debug informations will appear,"
+#echo "since this is a test release."
+#echo ""
+echo "checking..."
+#EOF
+}
+
+check_account() {
+	if [ ! -f ./save/account.txt ]; then
+		echo "0	s1	p1	-	S	0" > save/account.txt
+		echo "1	s2	p2	-	S	0" >>save/account.txt
+		echo "2	s3	p3	-	S	0" >>save/account.txt
+		echo "3	s4	p4	-	S	0" >>save/account.txt
+		echo "4	s5	p5	-	S	0" >>save/account.txt
+	fi
+}
+
+check_files() {
+
+	for i in ${L_SRV} ${C_SRV} ${M_SRV} ${L_SRV_C} ${C_SRV_C} ${C_SRV_C2} ${M_SRV_C} ${M_SRV_C2} ${M_SRV_C3} ${M_SRV_C4} ${M_SRV_C5} ${M_SRV_C6}
+	do
+		if [ ! -f ./$i ]; then
+    		echo "$i does not exist, or can't run."
+    		echo "Stopped, Check your compile or configuration file."
+    		exit 1;
+		fi
+	done
+
+#	more << EOF
+echo "Check done."
+echo "Looks good, have a nice Alpha!"
+echo ""
+#EOF
+}
+	
+
+case $1 in
+	'start')
+		print_start
+		check_account
+		check_files
+
+		echo "Starting Login Server:"
+		exec ./${L_SRV} 1> /dev/null &
+		sleep 1;
+		L_PID=`pidof login-server`;
+		if [ "$L_PID" ]
+		then
+			echo "Login Server Started. pid: $L_PID"
+			echo "Starting Char Server:"
+			exec ./${C_SRV} 1> /dev/null &
+			sleep 1;
+			C_PID=`pidof char-server`;
+			if [ "$C_PID" ]
+			then
+				echo "Char Server Started. pid: $C_PID"
+				echo "Starting Map Server:"
+				exec ./${M_SRV} 1> /dev/null &
+				sleep 1;
+				M_PID=`pidof map-server`;
+				if [ "$M_PID" ]
+				then
+					echo "Map Server Started. pid: $M_PID"
+					echo ""
+					echo "Alpha Server Started."	
+				else
+					echo "Map Server Failed to Start, Killing Processes."
+					ps ax | grep -E "${L_SRV}|${C_SRV}" | awk '{print $1}' | xargs kill
+				fi
+			else
+				echo "Char Server Failed to Start. Killing Processes"
+				ps ax | grep -E "${L_SRV}" | awk '{print $1}' | xargs kill -9
+				fi
+		else
+			echo "Login Server Failed to Start."
+		fi
+;;
+	'stop')
+		echo "Stopping Alpha Server."
+		ps ax | grep -E "${L_SRV}|${C_SRV}|${M_SRV}" | awk '{print $1}' | xargs kill
+		sleep 2;
+		echo ""
+		echo "Alpha Stopped."
+	;;
+	'restart')
+		$0 stop
+		$0 start
+	;;
+	*)
+		echo "Usage: alpha-start { start | stop | restart }"
+	;;
+esac

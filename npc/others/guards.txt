@@ -1,0 +1,184 @@
+//===== Alpha Script =======================================
+//= Interactive Guards Scripts
+//===== By: ================================================
+//= taulin
+//===== Current Version: ===================================
+//= 0.3
+//===== Compatible With: ===================================
+//= Alpha Version 159+
+//===== Description: =======================================
+//= Scripts to control guards you can interact with
+//===== Additional Comments: ===============================
+//=
+//==========================================================
+
+// Underground Sewer Guard
+prt_intr01.gat,118,27,5	script	Sewer Guard	33,{
+
+mes "[ Sewer Guard ]";
+mes "Monsters have invaded our glorious city's sewer system.";
+next;
+mes "[ Sewer Guard ]";
+mes "The King has requested that all available adventurers sign up to drive these monsters out.";
+next;
+mes "[ Sewer Guard ]";
+mes "Are you a bad enough dude to kill off the monsters?";
+next;
+menu "Sign me up",LSignup,"No Thanks",LCancel;
+
+LSignup:
+mes "[ Sewer Guard ]";
+mes "Thank you for signing up.";
+mes "I will now let you into the sewers.";
+next;
+warp "prt_dugn00.gat",41,31;
+close;
+
+LCancel:
+mes "[ Sewer Guard ]";
+mes "Please consider it.";
+next;
+close;
+
+}
+
+// North Prontera Graveyard Save Point Guard
+prt_vilg02.gat,36,69,3	script	Graveyard Guard	33,{
+
+mes "[ Graveyard Guard ]";
+mes "Greetings adventurer.";
+mes "How may I be of service?";
+next;
+menu "Save Location",LSave,"About Save",LAbout,"Nothing right now",LCancel;
+
+LSave:
+mes "[ Graveyard Guard ]";
+mes "You will now respawn here.";
+mes "Take care.";
+savepoint "prt_vilg02.gat",37,51;
+next;
+close;
+
+LAbout:
+mes "[ Graveyard Guard ]";
+mes "If you fall in combat you will be returned to the location you are saved at.";
+next;
+close;
+
+LCancel:
+mes "[ Graveyard Guard ]";
+mes "Another time then.";
+next;
+close;
+
+}
+
+// South Prontera Plaza Guard
+prt_vilg01.gat,100,90,5	script	Guard	33,{
+
+mes "[ Guard ]";
+mes "Good day sir.";
+mes "Can I be of assistance?";
+next;
+menu "Shop Locations",LShop,"Nothing right now",LCancel;
+
+LShop:
+mes "[ Guard ]";
+mes "Nothing yet.";
+next;
+close;
+
+LCancel:
+mes "[ Guard ]";
+mes "Have a good day.";
+next;
+close;
+
+}
+
+// Prontera Castle Entrance Guard
+prt_vilg00.gat,97,105,5	script	Guard	33,{
+
+mes "[ Guard ]";
+mes "Good day sir.";
+mes "This is the entrance to the Castle of Prontera.";
+mes "Please be on your best behavior.";
+next;
+close;
+
+}
+
+// Prontera Castle Entrance Guard
+prt_vilg00.gat,102,105,5	script	Guard	33,{
+
+mes "[ Guard ]";
+mes "Good day sir.";
+mes "This is the entrance to the Castle of Prontera.";
+mes "Please be on your best behavior.";
+next;
+close;
+
+}
+
+// East Arches Village Save Point Guard
+moc_vilg02.gat,148,66,6	script	Guard	33,{
+
+mes "[ Guard ]";
+mes "Be warned adventurer.";
+mes "It is dangerous to proceed past this point, I suggest saving your spawn point first.";
+next;
+menu "Save Location",LSave,"About Save",LAbout,"Nothing right now",LCancel;
+
+LSave:
+mes "[ Guard ]";
+mes "You will now respawn here.";
+mes "Good luck.";
+savepoint "moc_intr02.gat",112,112;
+next;
+close;
+
+LAbout:
+mes "[ Guard ]";
+mes "If you fall in combat you will be returned to the location you are saved at.";
+next;
+close;
+
+LCancel:
+mes "[ Guard ]";
+mes "Fare you well.";
+next;
+close;
+
+}
+
+// East Arches Village Save Point Guard
+moc_vilg02.gat,152,62,6	script	Guard	33,{
+
+mes "[ Guard ]";
+mes "Be warned adventurer.";
+mes "It is dangerous to proceed past this point, I suggest saving your spawn point first.";
+next;
+menu "Save Location",LSave,"About Save",LAbout,"Nothing right now",LCancel;
+
+LSave:
+mes "[ Guard ]";
+mes "You will now respawn here.";
+mes "Good luck.";
+savepoint "moc_intr02.gat",112,112;
+next;
+close;
+
+LAbout:
+mes "[ Guard ]";
+mes "If you fall in combat you will be returned to the location you are saved at.";
+next;
+close;
+
+LCancel:
+mes "[ Guard ]";
+mes "Fare you well.";
+next;
+close;
+
+}
+

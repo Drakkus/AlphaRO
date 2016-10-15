@@ -1,0 +1,131 @@
+// 0 - novice, 1 - swordman, 2 - mage, 3 - archer, 4 - acolyte, 5 - merchant, 6 - thief
+// ID,Name,equip gender,equip level,equip class1,equip class2,equip class3, ...... ,equip class22
+// list revised by taulin
+
+501,Red Potion,2,0,99
+502,Orange Potion,2,0,99
+503,Yellow Potion,2,0,99
+504,White Potion,2,0,99
+505,Blue Potion,2,0,99
+506,Green Potion,2,0,99
+507,Red Herb,2,0,99
+508,Yellow Herb,2,0,99
+509,White Herb,2,0,99
+510,Blue Herb,2,0,99
+511,Green Herb,2,0,99
+512,Apple,2,0,99
+513,Banana,2,0,99
+514,Grape,2,0,99
+517,Meat,2,0,99
+
+1101,Sword,2,2,0,1,5,6
+1104,Falchion,2,2,0,1,5,6
+1107,Blade,2,2,0,1,5,6
+1110,Lapier,2,14,0,1,5,6
+1113,Scimiter,2,14,0,1,5,6
+1116,Katana,2,4,0,1,5,6
+1119,Tsurugi,2,27,0,1,5,6
+1151,Slayer,2,18,0,1,5,6
+1154,Bastard Sword,2,18,0,1,5,6
+1157,Two-hand Sword,2,33,0,1,5,6
+
+1201,Knife,2,1,0,1,2,3,5,6
+1204,Cutter,2,1,0,1,2,3,5,6
+1207,Main-gauche,2,1,0,1,2,3,5,6
+1210,Dirk,2,12,0,1,2,3,5,6
+1213,Dagger,2,12,0,1,2,3,5,6
+1216,Stiletto,2,12,0,1,2,3,5,6
+1219,Gladius,2,24,0,1,2,3,5,6
+1222,Damascus,2,24,0,1,2,3,5,6
+1224,Sword Breaker,2,36,0,1,2,3,5,6
+1225,Mail Breaker,2,36,0,1,2,3,5,6
+1226,Damascus_,2,24,0,1,2,3,5,6
+
+1301,Axe,2,3,0,1,5
+1351,Battle Axe,2,3,0,1,5
+1354,Hammer,2,16,0,1,5
+1357,Buster,2,30,0,1,5
+1360,Two-handed Axe,2,30,0,1,5
+
+1401,Javelin,2,4,1
+1404,Spear,2,4,1
+1407,Pike,2,4,1
+1410,Lance,2,33,1
+1451,Guisarme,2,18,1
+1454,Glaive,2,18,1
+1457,Partizan,2,18,1
+1460,Trident,2,33,1
+1463,Halberd,2,33,1
+
+1501,Club,2,2,0,1,4,5
+1504,Mace,2,2,0,1,4,5
+1507,Smasher,2,14,0,1,4,5
+1510,Flail,2,14,0,1,4,5
+1513,Morning Star,2,27,0,1,4,5
+1516,Sword Mace,2,27,0,1,4,5
+
+1601,Rod,2,1,2,4
+1604,Wand,2,12,2,4
+1607,Staff,2,12,2,4
+1610,Arc Wand,2,24,2,4
+
+1701,Bow,2,4,3,6
+1704,Composite Bow,2,4,3,6
+1707,Great Bow,2,18,3,6
+1710,CrossBow,2,18,3,6
+1713,Arbalest,2,33,3,6
+
+2101,Guard,2,0,99
+2103,Buckler,2,0,1,4,5,6
+2105,Shield,2,0,1
+
+2208,Ribbon,2,0,99
+2210,Hair_Band,2,0,99
+2216,Biretta,2,0,99
+2218,Mask,2,0,99
+2220,Hat,2,0,1,2,3,4,5,6
+2226,Cap,2,0,1,2,3,4,5,6
+2228,Helm,2,0,1,5,6
+2232,Circlet,2,0,2,4
+2234,Tiara,0,45,1,2,3,4,5,6
+2235,Crown,1,45,1,2,3,4,5,6
+2236,Goggle,2,0,99
+
+2301,Cotton Shirt,2,0,99
+2303,Leather Jacket,2,0,99
+2305,Adventure Suit,2,0,1,3,5,6
+2307,Mantle,2,0,1,3,5,6
+2309,Coat,2,0,1,3,5,6
+2311,Mink Coat,2,30,1,2,3,4,5,6
+2312,Padded Armor,2,0,1,3,5,6
+2314,Chain Mail,2,0,1,5,6
+2316,Plate Armor,2,40,1
+2318,Lord's Clothes,2,70,5
+2319,Glitter Cloth,2,60,5
+2320,Formal Dress,2,0,1,2,3,4,5,6
+2321,Silk Robe,2,0,2,4
+2323,Scapulare,2,0,4
+2325,Saint Robe,2,0,1,4,5
+2327,Holy Robe,2,0,4
+2328,Wooden Mail,2,0,1,3,4,5,6
+2330,Tights,2,45,3,5,6
+2332,Silver Robe,2,0,2
+2334,Magic Coat,2,40,2
+2335,Thieves' Cloth,2,0,6
+2337,Ninja Suit,2,50,6
+
+2401,Sandals,2,0,99
+2403,Shoes,2,0,1,2,3,4,5,6
+2405,Boots,2,0,1,3,5,6
+
+2501,Hood,2,0,99
+2503,Muffler,2,0,1,2,3,4,5,6
+2505,Manteau,2,0,1,5,6
+
+2601,Ring,2,20,1,2,3,4,5,6
+2602,Earring,2,20,1,2,3,4,5,6
+2603,Necklace,2,20,1,2,3,4,5,6
+2604,Glove,2,20,1,2,3,4,5,6
+2605,Brooch,2,20,1,2,3,4,5,6
+2607,Clip,2,0,1,2,3,4,5,6
+2608,Rosary,2,0,1,2,3,4,5,6

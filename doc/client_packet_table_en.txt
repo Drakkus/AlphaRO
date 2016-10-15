@@ -1,0 +1,372 @@
+alpha packet table reference
+
+list of packet length. "-1" means a packet that have its packet length
+just after the packet number.
+
+  34, 13, 3, 26, 6, -1,  6, -1,  3, 77,  3,  0,  3, 28, 15, 11,
+    6,  0,  0,  0,  19,  0,  0,  0,   0,  0,  2,  6,  0,  3,  0,  0,
+    0,  5,  0,  12,  0,  0,  0,  0,   0,  0,  0,  0,  0,  0,  0,  0,
+    0,  0,  0,  0,  0,  0,  0,  0,   0,  0,  0,  0,  0,  0,  0,  0
+
+S means a packet that will be sent from client.
+R means a packet that will be received by client.
+B means a byte.
+W means word( 2 bytes)
+L means long word(4bytes)
+* means repeat
+
+
+S 0000 <account name>.16B <password>.16B
+	Sends authentication information for login.
+	
+S 0001 <session ID1>.L <account ID>.L ?.2B <sex>.B
+	Request connection to character server.
+	
+S 0002 <charactor number>.B
+	Request to select character.
+	
+S 0003 <char_name>.16B <STR>.B <AGI>.B <VIT>.B <INT>.B <DEX>.B <LUK>.B <slot#>.B <hair>.B
+	Request to create new character.
+	
+S 0004 <character ID>.l
+	Request to delete character.
+	
+R 0005 <len>.w <account ID>.l <sex>.B <session ID>.l ?.26B {<IP>.l <port>.w <server name>.20B}.26B*
+	Login authentication succeeded and transmitting character server information.
+	
+R 0006 <error No>.B
+	Login authentication failed.
+	00 = Incorrect UserID
+	01 = Incorrect Password
+	02 = ID expired
+	default = Access denied
+	
+R 0007 <len>.w <charactor select data>.74B*
+	information about a success of connection to character select server & character server
+	<charactor select data> = <charactor ID>.l <base exp>.l <zeny>.l <job exp>.l  ?.16B <HP>.w <MaxHP>.w <SP>.w <MaxSP>.w  ?.8B <name>.16B <class>.B <base level>.B <job level>.B <STR>.B <AGI>.B <VIT>.B <INT>.B <DEX>.B <LUK>.B <charactor number>.B  ?.B  <hair>.B <weapon>.B ?.B
+	
+R 0008 <error No>.B
+	Deny Service and Disconnect.
+	01 = Client language is different from server
+	default = Access denied
+	
+R 0009 <charactor select data>.74B
+	Character creation succeeded.
+	
+R 000A <error No>.B
+	Character creation failed.
+	00 = Character name already exists
+	default = Character Creation denied
+	
+	
+R 000B
+	Character deletion success.
+	
+R 000C <error_code>.B
+	Character deletion failed.
+	default = Cannot delete character
+	
+R 000D <gid>.L <map_name>.16B <zone_server_IP>.L <zone_server_port>.W 
+	Character selection succeeded, transmitting map name and zone server information. 
+	<map_name> is not required to be 0 terminated.
+	<zone_server_IP> is in Network byte order (Big Endian).
+	<zone_server_port> is in Little Endian byte order.
+	
+S 000E <sessesion_id>.L <gid>.L <account_id>.L <sex>.B 
+	Request connection to zone server.
+	
+R 000F <server_tick>.L <coords>.3B <unknown>.W
+	Connection to zone server succeeded; transmitting map coordinates.
+	
+R 0010 <unused>.L
+	Server Rejection.
+	
+S 0014
+	<ID>.l <speed>.w <class>.w <sex>.B <X_Y_dir>.3B <hair>.w <weapon>.w <sit>.B
+	
+S 0015
+	<ID>.l <speed>.w <class>.w <X_Y_dir>.3B
+	
+S 0017
+	<ID>.l <speed>.w <class>.w <sex>.B <X_Y_dir>.3B
+	
+S 0018
+	<ID>.l <speed>.w <class>.w <sex>.B <X_Y_dir>.3B
+	
+S 0019
+	Client loaded map successfully
+	
+S 001A
+	Client requesting server tick
+	
+R 001B <server tick>.l
+	Server sending tick
+	
+R 001C <ID>.l <type>.B
+	type=00 character disappear( walk out of screen. died and disappear?)
+	type=01 character died
+	
+R 001D <error_code>.B
+	Server Disconnection.
+	00 = You are disconnected from server
+	01 = Server off
+	00 = Double login prohibited
+	default = You are disconnected from server
+	
+S 0021 <X_Y>.2B
+	Request to walk
+	
+R 0023 <server tick>.l <X_Y_X_Y>.5B ?Orientation?.B
+	Response to the request to walk
+	
+R 0024 <ID>.l <X>.w <Y>.w
+	stop walking
+
+R 0027 <len>.w <str>.?B
+	Send normal speech. It becomes a speech for chat during a chat
+	client adds "<nick> : " part. 
+
+S 0028 <len>.w <ID>.l <str>.?B
+	receive a speech by ID. it become speech for chat during a chat
+
+S 0029 <len>.w <str>.?B
+	receive my character's speech. it become speech for chat during a chat
+
+S 00AB <ID>.l <type?>.B
+	talk to npc. i havent seen type setted to 01.
+
+S 0034 <len>.w <message>.?B
+	GM announce
+
+R 0035 <len>.w <message>.?B
+	GM announce
+
+R 0038 <ID>.l <X>.w <Y>.w <amount>.w <subX>.B <subY>.B <name>.16B
+	item dropped to the ground.
+
+S 003A <ID>.l
+	pick up item on the floor.
+
+R 003B <index>.w <amount>.w <name>.16B <equip type>.w <type>.B <fail>.B
+	response to picking up item off the floor.
+
+R 00a1 <ID>.l
+	removing item from the floor
+
+S 003D <index>.w <amount>.w
+	drop inventory item.
+
+S 0042 <index>.w <ID>.l
+	use index item. ID can be only myself?
+
+S 0044 <index>.w <equip type>.b
+	equip item.
+
+S 0046 <index>.w
+	take off equipment.
+
+R 004B <type>.w <val>.l
+	update values of various status.
+	0000:speed 0003:carma 0004:manner point 0005:HP 0006: MaxHP
+	0007:SP 0008:MaxSP 0009:status point 000b: base level
+	000c:skil point 0018:weight(this number must be 10 times greater than it's been diplayed.)
+	0019:max weight(this number must be 10 times greater than it's been diplayed.)
+	0029:attack in front 002a:attack in back 002b:matk in front 002c:matk in back
+	002d:deffence in front 002e:deffence in back 002f:mdef in front 0030:mdef in back
+	0031:hit 0032:flee in front 0033:flee in back 0034: critical
+	0035:aspd(time by 2ms?) 0037:job level
+	0082:unknown. is it the same number as atk in back?
+
+R 004C <type>.w <val>.l
+	update valies of various status. below is the list of corresponding type and value.
+	0001:base experience 0002:job experience 0014:zeny
+	0016:base experience that needed to level up 0017:job experience that needed to level up
+
+S 004D <type>.B
+	type=00 restart game when character died.
+
+S 0053 <ID>.l <select>.B
+	select options in npc message window. number starts from 1 for each options. cancel for ff?
+
+S 0054 <ID>.l
+	"NEXT" button clicked in npc message window.
+
+S 0056 <type>.w <amount>.B
+	request update status. type can be 000d for STR, 000e for AGI, 000f for VIT, 0010 for INT, 0011 for DEX, 0012 for LUK.
+
+R 0057 <type>.w <fail>.B <val>.B
+	respnse to update status. it's successeeded if fail=01. type is the same value as packet number 0056. val is a value of increase.
+	it's unknown when it's failed because i havent ever seen. i think it will be fail=00 when it's failed.
+
+R 0058 <status point>.w <STR>.B <STRupP>.B <AGI>.B <AGIupP>.B <VIT>.B <VITupP>.B <INT>.B <INTupP>.B <DEX>.B <DEXupP>.B <LUK>.B <LUKupP>.B <ATK>.B <ATKbonus>.B <MATKmax>.B <DEF>.B
+	packet of information for various status.
+
+R 0059 <type>.w <val>.B
+	packet to update required status point. type can be 0020-0025 for STR-LUK.( see packet number 0056 for detals.)
+
+S 005A <type>.B
+	display emotion. type can be 00-0c(,0d) for ALT+1-ALT+9,ALT+0,CTRL+-,CTRL++,CTRL+\(,korean flag).
+
+R 005B  <ID>.l <type>.B
+	emotion by ID. type is the same as 005a.
+
+S 005C
+	request to ask # of players logged in.
+
+R 005D <val>.l
+	responds with # of players logged in.
+
+R 005E <ID>.l <type>.B <val>.B
+	change looks. type=00 means body(by jobs), 02 is weapon, 03 is head(lower), 04 is head(upper), 05 is head(middle), 08 is shield.
+
+S 0063 <len>.w {<amount>.w <item ID>.w}.4B*
+	buy item from npc shop.
+
+S 0064 <>.w {<index>.w <amount>.w}.4B*
+	sell item to npc shop.
+
+S 0070 <len>.w <limit>.w <pub>.B <passwd>.8B <title>.?B
+	create chat room.(from now on, im not sure for packets about chat.)
+
+R 0071 <fail>.B
+	response to create chat room.
+
+R 0072 <len>.w <owner ID>.l <chat ID>.l <limit>.w <users>.w <pub>.B <title>.?B
+	information for chat room in the screen.
+
+R 0073 <chat ID>.l
+	delete chat room.
+
+S 0074 <chat ID>.l <passwd>.8B
+	request to join the chat.
+
+R 0075 <fail>.B
+	fail to join the chat.
+
+R 0076 <len>.w <chat ID>.l {<index>.l <nick>.16B}.28B*
+	list of people in the chat room.
+
+R 0077 <users>.w <nick>.24B
+	add person to the chat room.
+
+R 0078 <index>.w <nick>.16B <fail>.B
+	leave the chat room.
+
+S 0079 <len>.w <limit>.w <pub>.B <passwd>.8B <title>.?B
+	change chat room status.
+
+R 007A <len>.w <owner ID>.l <chat ID>.l <limit>.w <users>.w <pub>.B <title>.?B
+	success to change chat room status.
+
+S 007B ?.l <nick>.16B
+	request to change owner of the chat room?
+
+R 007C <index>.l <nick>.24B
+	re-number people in the chat room?
+
+S 007D <nick>.24B
+	kick nick from chat room.
+
+S 007E
+	leave chat room.
+
+S 007F <ID>.l
+	request trade.
+
+R 0080 <nick>.24B
+	recieve a request to trade.
+
+S 0081 <type>.B
+	type=03
+		trade ok.
+	type=04 
+		trade canceled.
+
+R 0082 <fail>.B
+	response to requesting trade.
+	fail=00
+		too far.
+	fail=03 
+		allowed the trade.
+	fail=04 
+		trade canceled?
+
+S 0083 <index>.w <amount>.l
+	add item. index=0 means adding zeny. for official client, zeny can be added only in packet number 0086.
+
+R 0084 <amount>.l <type ID>.w <identify flag>.B <attribute?>.B <refine>.B <card>.4w
+	added item from other character.
+
+R 0085 <index>.w <fail>.B
+	fail=00
+		success to add item.
+	fail=01 
+		fail to add item. the player was over weighted.
+
+S 0086
+	completed adding item.(clicked OK)
+
+R 0087 <fail>.B
+	fail=00 
+		recieved "OK" from myself
+	fail=01 
+		recieved "OK" from the other.
+
+S 0088
+	trade canceled.
+
+R 0089
+	message of "trade canceled"
+
+S 008A
+	trade OKed. (clicked Trade)
+
+R 008B
+	trade completed.
+
+S 0094 <party name>.16B
+	create party.
+
+R 0095 <fail>.B
+	success to create party.
+
+R 0096 <len>.w <party name>.16B {<ID>.l <nick>.16B <map name>.16B <leader>.B <offline>.B}.38B*
+	packet for various information about party.
+
+S 0097 <ID>.l
+	invite a player to the party.
+
+R 0098 <nick>.16B <fail>.B
+	fail=00 
+		the player is already in other party.
+	fail=01 
+		invitation was denied.
+	fail=02
+		invitation was a success
+
+R 0099 <ID>.l <party name>.16B
+	invited to party.
+
+S 009A <ID>.l <fail>.l
+	response when player was invited to party. fail=1 means OK
+
+R 0100
+	unknown. related to party?
+
+R 09D <ID>.l ?.l <X>.w <Y>.w <offline>.B <party name>.16B <nick>.16B <map name>.16B
+	information about a player in the party.
+
+R 09E <ID>.l <nick>.24B <fail>.B
+	nick leaves the party.
+
+R 09F <ID>.l <HP>.w <MaxHP>.w
+	update HP of party members.
+
+R 0A0 <ID>.l <X>.w <Y>.w
+	update coordinates of party members.
+
+S 0A1 <len>.w <message>.?B
+	send speech for party members.
+
+R 0A2 <len>.w <ID>.l <message>.?B
+	receive speech for party members.

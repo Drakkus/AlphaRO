@@ -1,0 +1,77 @@
+//===== Alpha Script =======================================
+//= Archer Quest Script
+//===== By: ================================================
+//= taulin
+//===== Current Version: ===================================
+//= 0.5
+//===== Compatible With: ===================================
+//= Alpha Version 159+
+//===== Description: =======================================
+//= Quest Script for Archer Job Change
+//===== Additional Comments: ===============================
+//= 
+//==========================================================
+
+moc_intr02.gat,62,179,7	script	Archer Tester	53,{
+
+mes "[ Archer Jobtester ]";
+mes "Ah, ready to change to an Archer?";
+next;
+menu "Change to Archer",LArcher,"Not Yet",LCancel;
+
+LArcher:
+mes "[ Archer Jobtester ]";
+if(class !=0) goto Lnovice;
+if (readparam(55) == 8) goto Lbeight;
+if(countitem(916)<20) goto Lnofob; //feather of bird
+mes "Alright Archer it is!";
+delitem 916,20; //feather of bird
+jobchange 3;
+next;
+close;
+
+Lnofob:
+mes "You don't have enough Feather of Bird";
+next;
+close;
+
+Lnovice:
+mes "You aren't a novice.";
+next;
+close;
+
+Lbeight:
+mes "You need to be base level 8.";
+next;
+close;
+
+LCancel:
+mes "[ Archer Jobtester ]";
+mes "Alright if you say so..";
+next;
+close;
+
+}
+
+moc_intr02.gat,62,181,7	script	Archer Guider	54,{
+
+mes "[ Archer Jobguider ]";
+mes "Would you like to learn more about Archer class?";
+next;
+menu "Information",Linformation,"Not Yet",LCancel;
+
+Linformation:
+mes "[ Archer Jobguider ]";
+mes "Job Change Requirements:";
+mes "*Level 8";
+mes "*20 Feather of Bird";
+next;
+close;
+
+LCancel:
+mes "[ Archer Jobguider ]";
+mes "So you say...";
+next;
+close;
+
+}

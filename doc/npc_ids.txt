@@ -1,0 +1,106 @@
+Alpha Client IDs
+Class Ids
+0 - Novice
+1 - Swordsman
+2 - Magician
+3 - Archer
+4 - Acolyte
+5 - Merchant
+6 - Thief
+
+Npc Ids
+32 - Soldier
+34 - Female
+35 - Grandmother
+36 - NpcKnight
+37 - Knightmaster
+38 - Maria
+39 - Librarygirl
+40 - Librarymaster
+41 - Blank
+42 - ETC1
+43 - ETC2
+44 - Boy2
+45 - Merchantmom
+46 - Merchantgirl
+47 - Merchantboy
+48 - Npcpriest
+49 - Pubmaster
+50 - Pubgirl
+51 - Pastor
+52 - Innkeeper
+53 - Jobtester
+54 - Jobguider
+55 - Blank
+56 - Boy3
+57 - Maid
+58 - Boy4
+59 - Etc3
+60 - Girl1
+61 - Girl2
+62 - Merchant_moc
+
+Monster Ids
+64 - Scorpion
+66 - Poring
+67 - Thief_bug_egg
+68 - Hornet
+69 - Familiar
+70 - Thief_bug_larva
+71 - Fabre
+72 - Pupa
+73 - Condor
+74 - Willow
+75 - Chocho
+76 - Roda_frog
+77 - Wolf
+78 - Spore
+79 - Zombie
+80 - Skel_archer
+81 - Thief_bug_female
+82 - Creamy
+83 - Pecopeco
+84 - Mandragora
+85 - Thief_bug_male
+86 - Were_wolf
+87 - Ork_warrior
+88 - Worm_tail
+89 - Snake
+90 - Munak
+91 - Raptice
+92 - Skel_soldier
+93 - Isis
+94 - Anacondaq
+95 - Poporing
+96 - Vorit
+97 - Elder_willow
+98 - Thara_frog
+99 - Hunter_fly
+100 - Ghoul
+101 - Side_Winder
+102 - Osiris
+103 - Baphomet
+104 - Golem
+105 - Mummy
+106 - Steel_chocho
+107 - Seahorses
+108 - Obeaune
+109 - Marc
+110 - Doppelganger
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

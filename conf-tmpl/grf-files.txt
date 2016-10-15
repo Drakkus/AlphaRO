@@ -1,0 +1,4 @@
+data: data.grf
+
+// sdata: D:\Program Files\Gravity\RO\sdata.grf
+// adata: conf/adata.grf

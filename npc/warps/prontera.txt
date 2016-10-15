@@ -1,0 +1,182 @@
+//===== Alpha Script =========================================
+//= Prontera Warp Script
+//===== By: ==================================================
+//= AppleGirl and Ferdal
+//===== Modified By: =========================================
+//= taulin
+//===== Current Version: =====================================
+//= 0.4
+//===== Compatible With: =====================================
+//= Alpha Version 110 revision+
+//===== Description: =========================================
+//= Warps relating to Prontera
+//===== Additional Comments: =================================
+//= 
+//============================================================
+
+//North Prontera Field
+prt_fild01.gat,112,22,0	warp	prt01	3,3,prt_vilg02.gat,100,173
+
+//North Prontera
+prt_vilg02.gat,100,176,0	warp	prt02	3,2,prt_fild01.gat,112,26
+prt_vilg02.gat,100,23,0	warp	prt03	3,2,prt_vilg00.gat,100,173
+prt_vilg02.gat,71,74,0	warp	prt91	3,2,prt_intr02.gat,14,126
+prt_vilg02.gat,153,50,0	warp	prt107	3,2,prt_intr02.gat,80,149
+prt_vilg02.gat,161,100,0	warp	prt115	3,2,prt_intr02.gat,166,20
+prt_vilg02.gat,127,119,0	warp	prt117	3,2,prt_intr02.gat,50,72
+prt_vilg02.gat,135,87,0	warp	prt123	3,2,prt_intr02.gat,178,109
+prt_vilg02.gat,111,63,0	warp	prt125	3,2,prt_intr02.gat,118,98
+prt_vilg02.gat,77,160,0	warp	prt127	3,2,prt_intr02.gat,14,20
+prt_vilg02.gat,143,151,0	warp	prt129	3,2,prt_intr02.gat,136,40
+prt_vilg02.gat,49,99,0	warp	prt131	3,2,prt_intr02.gat,95,46
+prt_vilg02.gat,86,142,0	warp	prt133	3,2,prt_intr02.gat,61,30
+prt_vilg02.gat,68,116,0	warp	prt135	3,2,prt_intr02.gat,28,52
+prt_vilg02.gat,148,141,0	warp	prt137	3,2,prt_intr02.gat,104,20
+
+//Inside North Prontera
+prt_intr02.gat,10,126,0	warp	prt92	3,2,prt_vilg02.gat,73,77
+prt_intr02.gat,43,126,0	warp	prt93	3,2,prt_intr02.gat,14,172
+prt_intr02.gat,10,172,0	warp	prt94	3,2,prt_intr02.gat,39,126
+prt_intr02.gat,38,137,0	warp	prt95	3,2,prt_intr02.gat,72,176
+prt_intr02.gat,72,172,0	warp	prt96	3,2,prt_intr02.gat,38,133
+prt_intr02.gat,38,114,0	warp	prt97	3,2,prt_intr02.gat,104,185
+prt_intr02.gat,104,189,0	warp	prt98	3,2,prt_intr02.gat,38,118
+prt_intr02.gat,76,185,0	warp	prt99	3,2,prt_intr02.gat,137,184
+prt_intr02.gat,133,184,0	warp	prt100	3,2,prt_intr02.gat,72,185
+prt_intr02.gat,108,176,0	warp	prt101	3,2,prt_intr02.gat,175,174
+prt_intr02.gat,171,174,0	warp	prt102	3,2,prt_intr02.gat,104,176
+prt_intr02.gat,66,140,0	warp	prt103	3,2,prt_intr02.gat,121,142
+prt_intr02.gat,125,142,0	warp	prt104	3,2,prt_intr02.gat,70,140
+prt_intr02.gat,93,140,0	warp	prt105	3,2,prt_intr02.gat,152,142
+prt_intr02.gat,148,142,0	warp	prt106	3,2,prt_intr02.gat,89,140
+prt_intr02.gat,80,153,0	warp	prt108	3,2,prt_vilg02.gat,150,53
+prt_intr02.gat,80,126,0	warp	prt109	3,2,prt_intr02.gat,22,95
+prt_intr02.gat,22,99,0	warp	prt110	3,2,prt_intr02.gat,80,130
+prt_intr02.gat,120,125,0	warp	prt111	3,2,prt_intr02.gat,59,98
+prt_intr02.gat,63,98,0	warp	prt112	3,2,prt_intr02.gat,120,129
+prt_intr02.gat,156,125,0	warp	prt113	3,2,prt_intr02.gat,90,98
+prt_intr02.gat,86,98,0	warp	prt114	3,2,prt_intr02.gat,156,129
+prt_intr02.gat,162,20,0	warp	prt116	3,2,prt_vilg02.gat,157,100
+prt_intr02.gat,46,72,0	warp	prt118	3,2,prt_vilg02.gat,124,116
+prt_intr02.gat,64,79,0	warp	prt119	3,2,prt_intr02.gat,100,72
+prt_intr02.gat,100,68,0	warp	prt120	3,2,prt_intr02.gat,64,75
+prt_intr02.gat,64,64,0	warp	prt121	3,2,prt_intr02.gat,140,73
+prt_intr02.gat,140,77,0	warp	prt122	3,2,prt_intr02.gat,64,68
+prt_intr02.gat,178,113,0	warp	prt124	3,2,prt_vilg02.gat,131,90
+prt_intr02.gat,114,98,0	warp	prt126	3,2,prt_vilg02.gat,107,63
+prt_intr02.gat,10,20,0	warp	prt128	3,2,prt_vilg02.gat,73,160
+prt_intr02.gat,132,40,0	warp	prt130	3,2,prt_vilg02.gat,140,148
+prt_intr02.gat,99,46,0	warp	prt132	3,2,prt_vilg02.gat,52,102
+prt_intr02.gat,65,30,0	warp	prt134	3,2,prt_vilg02.gat,89,145
+prt_intr02.gat,28,48,0	warp	prt136	3,2,prt_vilg02.gat,71,113
+prt_intr02.gat,100,20,0	warp	prt138	3,2,prt_vilg02.gat,146,138
+
+//Prontera Castle Outside
+prt_vilg00.gat,100,176,0	warp	prt04	3,2,prt_vilg02.gat,100,26
+prt_vilg00.gat,100,122,0	warp	prt05	3,2,prt_cstl01.gat,43,64
+prt_vilg00.gat,100,130,0	warp	prt06	3,2,prt_cstl01.gat,43,127
+prt_vilg00.gat,176,100,0	warp	prt07	3,2,prt_fild04.gat,18,156
+prt_vilg00.gat,23,99,0	warp	prt08	3,2,prt_fild05.gat,181,54
+prt_vilg00.gat,100,25,0	warp	prt09	3,2,prt_vilg01.gat,100,172
+prt_vilg00.gat,126,126,0	warp	prt25	3,2,prt_cstl01.gat,62,159
+prt_vilg00.gat,125,73,0	warp	prt27	3,2,prt_cstl01.gat,122,171
+prt_vilg00.gat,73,73,0	warp	prt29	3,2,prt_cstl01.gat,183,160
+prt_vilg00.gat,73,126,0	warp	prt31	3,2,prt_cstl01.gat,26,150
+
+//Prontera Castle Inside
+prt_cstl01.gat,43,130,0	warp	prt10	3,2,prt_vilg00.gat,100,135
+prt_cstl01.gat,43,61,0	warp	prt11	3,2,prt_vilg00.gat,100,119
+prt_cstl01.gat,58,159,0	warp	prt26	3,2,prt_vilg00.gat,123,124
+prt_cstl01.gat,122,175,0	warp	prt28	3,2,prt_vilg00.gat,123,76
+prt_cstl01.gat,187,160,0	warp	prt30	3,2,prt_vilg00.gat,75,76
+prt_cstl01.gat,26,146,0	warp	prt32	3,2,prt_vilg00.gat,76,124
+prt_cstl01.gat,176,52,0	warp	prt33	3,2,prt_cstl01.gat,166,106
+prt_cstl01.gat,166,110,0	warp	prt34	3,2,prt_cstl01.gat,176,56
+prt_cstl01.gat,150,114,0	warp	prt35	3,2,prt_cstl01.gat,96,118
+prt_cstl01.gat,96,122,0	warp	prt36	3,2,prt_cstl01.gat,150,118
+prt_cstl01.gat,178,114,0	warp	prt37	3,2,prt_cstl01.gat,124,118
+prt_cstl01.gat,124,122,0	warp	prt38	3,2,prt_cstl01.gat,178,118
+prt_cstl01.gat,110,89,0	warp	prt39	3,2,prt_cstl01.gat,44,89
+prt_cstl01.gat,44,93,0	warp	prt40	3,2,prt_cstl01.gat,110,93
+prt_cstl01.gat,16,70,0	warp	prt41	3,2,prt_cstl01.gat,100,51
+prt_cstl01.gat,100,55,0	warp	prt42	3,2,prt_cstl01.gat,16,74
+prt_cstl01.gat,72,70,0	warp	prt43	3,2,prt_cstl01.gat,132,51
+prt_cstl01.gat,132,55,0	warp	prt44	3,2,prt_cstl01.gat,72,74
+prt_cstl01.gat,100,40,0	warp	prt45	3,2,prt_cstl01.gat,20,36
+prt_cstl01.gat,20,40,0	warp	prt46	3,2,prt_cstl01.gat,100,44
+prt_cstl01.gat,132,40,0	warp	prt47	3,2,prt_cstl01.gat,60,36
+prt_cstl01.gat,60,40,0	warp	prt48	3,2,prt_cstl01.gat,132,44
+
+//East Prontera Field
+prt_fild04.gat,15,156,0	warp	prt12	3,2,prt_vilg00.gat,173,100
+
+//West Prontera Field
+prt_fild05.gat,184,54,0	warp	prt13	3,2,prt_vilg00.gat,26,99
+prt_fild05.gat,30,161,0	warp	prt18	3,2,prt_dugn01.gat,189,10
+
+//South Prontera
+prt_vilg01.gat,100,175,0	warp	prt14	3,2,prt_vilg00.gat,100,28
+prt_vilg01.gat,100,22,0	warp	prt15	3,2,prt_fild00.gat,100,177
+prt_vilg01.gat,133,115,0	warp	prt49	3,2,prt_intr01.gat,116,101
+prt_vilg01.gat,107,159,0	warp	prt51	3,2,prt_intr01.gat,16,184
+prt_vilg01.gat,122,124,0	warp	prt53	3,2,prt_intr01.gat,60,92
+prt_vilg01.gat,30,99,0	warp	prt55	3,2,prt_intr01.gat,33,68
+prt_vilg01.gat,39,111,0	warp	prt59	3,2,prt_intr01.gat,139,22
+prt_vilg01.gat,39,87,0	warp	prt61	3,2,prt_intr01.gat,89,46
+prt_vilg01.gat,71,77,0	warp	prt65	3,2,prt_intr01.gat,185,22
+prt_vilg01.gat,152,91,0	warp	prt67	3,2,prt_intr01.gat,39,14
+prt_vilg01.gat,37,65,0	warp	prt71	3,2,prt_intr01.gat,57,180
+prt_vilg01.gat,165,100,0	warp	prt73	3,2,prt_intr01.gat,114,63
+prt_vilg01.gat,108,138,0	warp	prt75	3,2,prt_intr01.gat,180,162
+prt_vilg01.gat,57,55,0	warp	prt77	3,2,prt_intr01.gat,80,175
+prt_vilg01.gat,54,153,0	warp	prt79	3,2,prt_intr01.gat,14,111
+prt_vilg01.gat,90,160,0	warp	prt81	3,2,prt_intr01.gat,145,182
+prt_vilg01.gat,86,64,0	warp	prt83	3,2,prt_intr01.gat,123,140
+prt_vilg01.gat,128,80,0	warp	prt85	3,2,prt_intr01.gat,66,149
+prt_vilg01.gat,153,67,0	warp	prt87	3,2,prt_intr01.gat,158,149
+prt_vilg01.gat,172,122,0	warp	prt89	3,2,prt_intr01.gat,14,152
+
+//Inside South Prontera
+prt_intr01.gat,112,101,0	warp	prt50	3,2,prt_vilg01.gat,130,112
+prt_intr01.gat,12,184,0	warp	prt52	3,2,prt_vilg01.gat,103,159
+prt_intr01.gat,56,92,0	warp	prt54	3,2,prt_vilg01.gat,119,121
+prt_intr01.gat,37,68,0	warp	prt56	3,2,prt_vilg01.gat,34,99
+prt_intr01.gat,114,10,0	warp	prt57	3,2,prt_intr01.gat,22,79
+prt_intr01.gat,22,83,0	warp	prt58	3,2,prt_intr01.gat,114,14
+prt_intr01.gat,143,22,0	warp	prt60	3,2,prt_vilg01.gat,43,111
+prt_intr01.gat,93,46,0	warp	prt62	3,2,prt_vilg01.gat,43,87
+prt_intr01.gat,64,57,0	warp	prt63	3,2,prt_intr01.gat,22,56
+prt_intr01.gat,22,52,0	warp	prt64	3,2,prt_intr01.gat,64,53
+prt_intr01.gat,189,22,0	warp	prt66	3,2,prt_vilg01.gat,74,80
+prt_intr01.gat,39,10,0	warp	prt68	3,2,prt_vilg01.gat,152,87
+prt_intr01.gat,20,27,0	warp	prt69	3,2,prt_intr01.gat,164,92
+prt_intr01.gat,164,88,0	warp	prt70	3,2,prt_intr01.gat,20,23
+prt_intr01.gat,61,180,0	warp	prt72	3,2,prt_vilg01.gat,41,65
+prt_intr01.gat,110,63,0	warp	prt74	3,2,prt_vilg01.gat,161,100
+prt_intr01.gat,180,158,0	warp	prt76	3,2,prt_vilg01.gat,108,134
+prt_intr01.gat,76,175,0	warp	prt78	3,2,prt_vilg01.gat,54,52
+prt_intr01.gat,10,111,0	warp	prt80	3,2,prt_vilg01.gat,50,150
+prt_intr01.gat,149,182,0	warp	prt82	3,2,prt_vilg01.gat,94,160
+prt_intr01.gat,127,140,0	warp	prt84	3,2,prt_vilg01.gat,89,66
+prt_intr01.gat,66,153,0	warp	prt86	3,2,prt_vilg01.gat,125,83
+prt_intr01.gat,158,153,0	warp	prt88	3,2,prt_vilg01.gat,150,71
+prt_intr01.gat,10,152,0	warp	prt90	3,2,prt_vilg01.gat,172,118
+
+//South Prontera Field
+prt_fild00.gat,100,180,0	warp	prt16	3,2,prt_vilg01.gat,100,25
+prt_fild00.gat,79,18,0	warp	prt17	3,2,moc_fild04.gat,162,191
+
+//Prontera Dungeon 1B
+prt_dugn01.gat,191,8,0	warp	prt20	3,2,prt_fild05.gat,33,158
+prt_dugn01.gat,166,183,0	warp	prt21	3,2,prt_dugn02.gat,178,185
+
+//Prontera Dungeon 2B
+prt_dugn02.gat,178,188,0	warp	prt22	3,2,prt_dugn01.gat,166,180
+prt_dugn02.gat,98,117,0	warp	prt23	3,2,prt_dugn03.gat,102,87
+
+//Prontera Dungeon 3B
+prt_dugn03.gat,102,90,0	warp	prt24	3,2,prt_dugn02.gat,98,120
+
+//Underground Waterway
+prt_dugn00.gat,182,152,0	warp	prt19	3,2,prt_fild04.gat,29,112
+

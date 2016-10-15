@@ -1,0 +1,33 @@
+//===== Alpha Script ========================================
+//= Morroc Warp Script
+//===== By: ==================================================
+//= AppleGirl
+//===== Current Version: =====================================
+//= 0.1
+//===== Compatible With: =====================================
+//= Alpha Version 110 revision+
+//===== Description: =========================================
+//= Warps relating to Prontera
+//===== Additional Comments: =================================
+//= 
+//============================================================
+//South East Morroc Field
+moc_fild04.gat,162,194,0	warp	moc01	3,2,prt_fild00.gat,79,21
+moc_fild04.gat,12,63,0	warp	moc02	3,2,moc_fild01.gat,185,114
+//South Morroc Field
+moc_fild01.gat,188,114,0	warp	moc03	3,2,moc_fild04.gat,15,63
+moc_fild01.gat,103,182,0	warp	moc04	3,2,moc_vilg00.gat,100,24
+//Morroc Castle
+moc_vilg00.gat,99,21,0	warp	moc05	3,2,moc_fild04.gat,103,179
+moc_vilg00.gat,99,179,0	warp	moc06	3,2,moc_vilg01.gat,99,24
+//Morroc Village
+moc_vilg01.gat,99,21,0	warp	moc07	3,2,moc_vilg00.gat,99,176
+moc_vilg01.gat,178,117,0	warp	moc08	3,2,moc_fild03.gat,19,39
+moc_vilg01.gat,120,177,0	warp	moc09	3,2,moc_fild02.gat,104,20
+//Morroc North Field
+moc_fild02.gat,104,17,0	warp	moc10	3,2,moc_vilg01.gat,120,174
+//Morroc East Field
+moc_fild03.gat,16,39,0	warp	moc11	3,2,moc_vilg01.gat,175,117
+moc_fild03.gat,178,179,0	warp	moc12	3,2,moc_vilg02.gat,44,40
+//Arche's Village
+moc_vilg02.gat,41,37,0	warp	moc13	3,2,moc_fild03.gat,175,176

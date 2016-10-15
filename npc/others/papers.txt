@@ -1,0 +1,116 @@
+//===== Alpha Script =======================================
+//= Town Hall Papers Script
+//===== By: ================================================
+//= taulin
+//===== Current Version: ===================================
+//= 0.1
+//===== Compatible With: ===================================
+//= Alpha Version 159+
+//===== Description: =======================================
+//= Script to control Town Hall paper officers
+//===== Additional Comments: ===============================
+//=
+//==========================================================
+
+// Residency Officer
+prt_intr01.gat,30,76,6	script	Residency Office	33,{
+
+mes "[ Residency Officer ]";
+mes "Yes, yes? What is it?";
+next;
+menu "Buy Resident Certificate",LBuylor,"What is a Resident Certificate?",LInformation,"Not Yet",LCancel;
+
+LBuylor:
+mes "[ Residency Officer ]";
+if(class !=0) goto Lnovice;
+if(countitem(4001)>0) goto Lyeslor; //Resident Cert
+if (Zeny < 1000) goto Lnomoney;
+mes "Here is your Resident Certificate.";
+getitem 4001,1; //Resident Cert
+set Zeny, Zeny-1000;
+next;
+close;
+
+LInformation:
+mes "[ Residency Officer ]";
+mes "A Resident Certificate verifies your stay in Rune Midgard.";
+mes "If you want to become a Swordsman or Merchant, you will need this certificate.";
+next;
+mes "[ Residency Officer ]";
+mes "The certificate costs 1,000 zeny and is only available to you if you are a novice.";
+next;
+close;
+
+Lyeslor:
+mes "You already have a Resident Certificate.";
+next;
+close;
+
+Lnomoney:
+mes "You don't have enough Zeny.";
+next;
+close;
+
+Lnovice:
+mes "You aren't a novice.";
+next;
+close;
+
+LCancel:
+mes "[ Residency Officer ]";
+mes "Fine, stop bothering me then.";
+next;
+close;
+
+}
+
+// Business Officer
+prt_intr01.gat,13,76,3	script	Business Office	33,{
+
+mes "[ Business Officer ]";
+mes "What do you want?";
+next;
+menu "Buy Business Certificate",LBuybc,"What is a Business Certificate?",LInformation,"Not Yet",LCancel;
+
+LBuybc:
+mes "[ Business Officer ]";
+if(class !=0) goto Lnovice;
+if(countitem(4002)>0) goto Lyesbc; //Business Cert
+if (Zeny < 2000) goto Lnomoney;
+mes "Here is your Business Certificate.";
+getitem 4002,1; //BusinessCert
+set Zeny, Zeny-2000;
+next;
+close;
+
+LInformation:
+mes "[ Business Officer ]";
+mes "A Business Certificate verifies you to become a Merchant in Rune Midgard.";
+next;
+mes "[ Business Officer ]";
+mes "The certificate costs 2,000 zeny and is only available to you if you are a novice.";
+next;
+close;
+
+Lyesbc:
+mes "You already have a Business Certificate.";
+next;
+close;
+
+Lnomoney:
+mes "You don't have enough Zeny.";
+next;
+close;
+
+Lnovice:
+mes "You aren't a novice.";
+next;
+close;
+
+LCancel:
+mes "[ Business Officer ]";
+mes "Alright, have a nice day.";
+next;
+close;
+
+}

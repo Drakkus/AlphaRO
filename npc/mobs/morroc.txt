@@ -1,0 +1,67 @@
+//===== Alpha Script =========================================
+//= Morroc Mob Spawn Script
+//===== By: ==================================================
+//= taulin
+//===== Current Version: =====================================
+//= 0.2
+//===== Compatible With: =====================================
+//= Alpha Version 144 revision+
+//===== Description: =========================================
+//= Mobs spawns relating to Morroc
+//===== Additional Comments: =================================
+//= 
+//============================================================
+
+//North-East Morroc Field
+moc_fild04.gat,0,0,0,0	monster	Condor	73,30,0,0,0
+moc_fild04.gat,0,0,0,0	monster	Steel ChonChon	106,20,0,0,0
+moc_fild04.gat,0,0,0,0	monster	PecoPeco	83,10,0,0,0
+moc_fild04.gat,0,0,0,0	monster	Wolf	77,10,0,0,0
+
+//South Morroc Field
+moc_fild01.gat,0,0,0,0	monster	Condor	73,30,0,0,0
+moc_fild01.gat,0,0,0,0	monster	Steel ChonChon	106,20,0,0,0
+moc_fild01.gat,0,0,0,0	monster	PecoPeco	83,10,0,0,0
+moc_fild01.gat,0,0,0,0	monster	Wolf	77,10,0,0,0
+
+//East Morroc Field
+moc_fild03.gat,0,0,0,0	monster	Spore	78,30,0,0,0
+moc_fild03.gat,0,0,0,0	monster	PecoPeco	83,20,0,0,0
+moc_fild03.gat,0,0,0,0	monster	Mandragora	84,10,0,0,0
+moc_fild03.gat,0,0,0,0	monster	Worm Tail	88,5,0,0,0
+moc_fild03.gat,0,0,0,0	monster	Snake	89,10,0,0,0
+
+//North Morroc Field
+moc_fild02.gat,0,0,0,0	monster	Condor	73,30,0,0,0
+moc_fild02.gat,0,0,0,0	monster	Wolf	77,15,0,0,0
+moc_fild02.gat,0,0,0,0	monster	Steel ChonChon	106,20,0,0,0
+moc_fild02.gat,0,0,0,0	monster	PecoPeco	83,15,0,0,0
+moc_fild02.gat,0,0,0,0	monster	Scorpion	65,10,0,0,0
+
+//Morroc Jungle
+dungeon000.gat,0,0,0,0	monster	Fabre	71,20,0,0,0
+dungeon000.gat,0,0,0,0	monster	Scorpion	65,15,0,0,0
+dungeon000.gat,0,0,0,0	monster	Poporing	95,15,0,0,0
+dungeon000.gat,0,0,0,0	monster	Creamy	82,20,0,0,0
+dungeon000.gat,0,0,0,0	monster	Anacondaq	94,10,0,0,0
+
+//Inside morroc jungle
+// unknown what monsters were here, guessing
+dungeon001.gat,0,0,0,0	monster	Raptice	91,30,0,0,0
+dungeon001.gat,0,0,0,0	monster	Hunter Fly	99,20,0,0,0
+dungeon001.gat,0,0,0,0	monster Sidewinder	101,25,0,0,0
+dungeon001.gat,0,0,0,0	monster	Baphomet	103,1,7200000,3600000,1
+
+//Pyramid 1F
+moc_dugn01.gat,0,0,0,0	monster	Farmiliar	69,20,0,0,0
+moc_dugn01.gat,0,0,0,0	monster	Skel Archer	80,15,0,0,0
+moc_dugn01.gat,0,0,0,0	monster	Skel Soldier	92,15,0,0,0
+moc_dugn01.gat,0,0,0,0	monster	Poporing	95,15,0,0,0
+moc_dugn01.gat,0,0,0,0	monster	Munak	90,15,0,0,0
+moc_dugn01.gat,0,0,0,0	monster Isis	93,10,0,0,0
+
+//Pyramid 2F
+moc_dugn02.gat,0,0,0,0	monster	Mummy	105,20,0,0,0
+moc_dugn02.gat,0,0,0,0	monster	Vorit	96,20,0,0,0
+moc_dugn02.gat,77,18,158,181	monster	Osiris	102,1,7200000,3600000,1
+// osiris will spawn here at some point

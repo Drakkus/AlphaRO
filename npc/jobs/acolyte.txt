@@ -1,0 +1,71 @@
+//===== Alpha Script =======================================
+//= Acolyte Quest Script
+//===== By: ================================================
+//= taulin
+//===== Current Version: ===================================
+//= 0.3
+//===== Compatible With: ===================================
+//= Alpha Version 159+
+//===== Description: =======================================
+//= Quest Script for Acolyte Job Change
+//===== Additional Comments: ===============================
+//=
+//==========================================================
+
+prt_intr02.gat,36,166,7	script	Acolyte Tester	53,{
+
+mes "[ Acolyte Jobtester ]";
+mes "Are you absolutely sure you want to become an Acolyte?";
+mes "It is really not recommended.";
+next;
+menu "Change to Acolyte",LAcolyte,"Not Yet",LCancel;
+
+LAcolyte:
+mes "[ Acolyte Jobtester ]";
+if(class !=0) goto Lnovice;
+if (readparam(55) == 5) goto Lbfive;
+mes "Alright Acolyte it is sucker!";
+jobchange 4;
+next;
+close;
+
+Lnovice:
+mes "You aren't a novice.";
+next;
+close;
+
+Lbfive:
+mes "You need to be base level 5.";
+next;
+close;
+
+LCancel:
+mes "[ Acolyte Jobtester ]";
+mes "Smart move...";
+next;
+close;
+
+}
+
+prt_intr02.gat,36,176,7	script	Acolyte Guider	54,{
+
+mes "[ Acolyte Jobguider ]";
+mes "Are you absolutely sure you want to become an Acolyte?";
+mes "It is really not recommended.";
+next;
+menu "Information",Linformation,"Not Yet",LCancel;
+
+Linformation:
+mes "[ Acolyte Jobtester ]";
+mes "Job Change Requirements:";
+mes "*Level 5";
+next;
+close;
+
+LCancel:
+mes "[ Acolyte Jobtester ]";
+mes "I wouldn't either...";
+next;
+close;
+
+}

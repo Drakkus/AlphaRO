@@ -1,0 +1,77 @@
+//===== Alpha Script =======================================
+//= Thief Quest Script
+//===== By: ================================================
+//= taulin
+//===== Current Version: ===================================
+//= 0.3
+//===== Compatible With: ===================================
+//= Alpha Version 159+
+//===== Description: =======================================
+//= Quest Script for Thief Job Change
+//===== Additional Comments: ===============================
+//=
+//==========================================================
+
+moc_intr04.gat,174,42,5	script	Thief Tester	53,{
+
+mes "[ Thief Jobtester ]";
+mes "Ah, ready to become a Thief?";
+next;
+menu "Change to Thief",LThief,"Not Yet",LCancel;
+
+LThief:
+mes "[ Thief Jobtester ]";
+if(class !=0) goto Lnovice;
+if (readparam(55) == 6) goto Lbsix;
+if (Zeny < 400) goto Lnomoney;
+mes "Alright Thief it is!";
+set Zeny, Zeny-400;
+jobchange 6;
+next;
+close;
+
+Lnomoney:
+mes "You need at least 400 zeny.";
+next;
+close;
+
+Lnovice:
+mes "You aren't a novice.";
+next;
+close;
+
+Lbsix:
+mes "You need to be base level 6.";
+next;
+close;
+
+LCancel:
+mes "[ Thief Jobtester ]";
+mes "Alright if you say so..";
+next;
+close;
+
+}
+
+moc_intr04.gat,178,39,7	script	Thief Guider	54,{
+
+mes "[ Thief Jobguider ]";
+mes "Would you like to learn about the Thief class?";
+next;
+menu "Information",Linformation,"Not Yet",LCancel;
+
+Linformation:
+mes "[ Thief Jobguider ]";
+mes "Job Change Requirements:";
+mes "*Level 6";
+mes "*400 zeny";
+next;
+close;
+
+LCancel:
+mes "[ Thief Jobguider ]";
+mes "So you say...";
+next;
+close;
+
+}

@@ -1,0 +1,107 @@
+//===== Alpha Script =======================================
+//= Misc NPCs Scripts
+//===== By: ================================================
+//= taulin
+//===== Current Version: ===================================
+//= 0.3
+//===== Compatible With: ===================================
+//= Alpha Version 159+
+//===== Description: =======================================
+//= Scripts for misc NPCs
+//===== Additional Comments: ===============================
+//=
+//==========================================================
+
+// Prontera Innkeeper
+prt_intr01.gat,38,24,5	script	Innkeeper	52,{
+
+mes "[ Innkeeper ]";
+mes "Welcome to the Prontera Inn.";
+mes "How may I be of service?";
+next;
+menu "Save Location",LSave,"About Save",LAbout,"Nothing right now",LCancel;
+
+LSave:
+mes "[ Innkeeper ]";
+mes "Your respawn point has been saved.";
+mes "Have a nice day.";
+savepoint "prt_intr01.gat",172,104;
+next;
+close;
+
+LAbout:
+mes "[ Innkeeper ]";
+mes "If you fall in combat you will be returned to the location you are saved at.";
+next;
+close;
+
+LCancel:
+mes "[ Innkeeper ]";
+mes "Enjoy your stay.";
+next;
+close;
+
+}
+
+// Morroc Innkeeper
+moc_intr01.gat,72,144,5	script	Innkeeper	52,{
+
+mes "[ Innkeeper ]";
+mes "Welcome to the Morroc Inn.";
+mes "How may I serve you?";
+next;
+menu "Save Location",LSave,"About Save",LAbout,"Nothing right now",LCancel;
+
+LSave:
+mes "[ Innkeeper ]";
+mes "Your respawn point is now at this location.";
+mes "Good day.";
+savepoint "moc_intr01.gat",81,110;
+next;
+close;
+
+LAbout:
+mes "[ Innkeeper ]";
+mes "If you fall in combat you will be returned to the location you are saved at.";
+next;
+close;
+
+LCancel:
+mes "[ Innkeeper ]";
+mes "Please take care.";
+next;
+close;
+
+}
+
+// Prontera Castle Knightmaster
+prt_cstl01.gat,30,78,7	script	Knightmaster	37,{
+
+mes "[ Knightmaster ]";
+mes "English version not finished......";
+next;
+close;
+
+}
+
+// Prontera Castle Librarymaster
+prt_cstl01.gat,28,81,5	script	Librarymaster	40,{
+
+mes "[ Librarymaster ]";
+mes "Sorry I don't have time to talk to you today.";
+next;
+close;
+
+}
+
+// Morroc Street Grandmother
+moc_vilg01.gat,103,65,1	script	Grandmother	35,{
+
+mes "[ Grandmother ]";
+mes "I don't know exactly why I am standing here, only that I am supposed to be.";
+next;
+close;
+
+}
+
+

@@ -1,0 +1,66 @@
+//===== Alpha Script =========================================
+//= Prontera Mob Spawn Script
+//===== By: ==================================================
+//= AppleGirl
+//===== Modified By: =========================================
+//= taulin
+//===== Current Version: =====================================
+//= 0.4
+//===== Compatible With: =====================================
+//= Alpha Version 144 revision+
+//===== Description: =========================================
+//= Mobs spawns relating to Prontera
+//===== Additional Comments: =================================
+//= 
+//============================================================
+
+//North Prontera Field
+prt_fild01.gat,0,0,0,0	monster	Poring	66,30,0,0,0
+prt_fild01.gat,0,0,0,0	monster	Fabre	71,20,0,0,0
+prt_fild01.gat,0,0,0,0	monster	Chocho	75,10,0,0,0
+
+//East Prontera Field
+prt_fild04.gat,0,0,0,0	monster	Poring	66,30,0,0,0
+prt_fild04.gat,0,0,0,0	monster	Fabre	71,20,0,0,0
+prt_fild04.gat,0,0,0,0	monster	Chocho	75,10,0,0,0
+prt_fild04.gat,0,0,0,0	monster	Roda Frog	76,5,0,0,0
+
+//West Prontera Field
+prt_fild05.gat,0,0,0,0	monster	Poring	66,25,0,0,0
+prt_fild05.gat,0,0,0,0	monster	Fabre	71,15,0,0,0
+prt_fild05.gat,0,0,0,0	monster	Wilow	74,10,0,0,0
+prt_fild05.gat,0,0,0,0	monster	Chocho	75,10,0,0,0
+prt_fild05.gat,0,0,0,0	monster	Spore	78,10,0,0,0
+prt_fild05.gat,0,0,0,0	monster	Roda Frog	76,5,0,0,0
+
+//South Prontera
+prt_fild00.gat,0,0,0,0	monster	Poring	66,30,0,0,0
+prt_fild00.gat,0,0,0,0	monster	Fabre	71,20,0,0,0
+prt_fild00.gat,0,0,0,0	monster	Chocho	75,10,0,0,0
+
+//Underground waterway
+prt_dugn00.gat,0,0,0,0	monster	Poring	66,20,0,0,0
+prt_dugn00.gat,0,0,0,0	monster	Farmiliar	69,20,0,0,0
+prt_dugn00.gat,0,0,0,0	monster	Doppelganger	110,1,3600000,3600000,1
+// doppleganger will be added here at some point
+
+//Prontera dungeon 1B
+prt_dugn01.gat,0,0,0,0	monster	Poring	66,20,0,0,0
+prt_dugn01.gat,0,0,0,0	monster	Spore	78,15,0,0,0
+prt_dugn01.gat,0,0,0,0	monster	Willow	74,15,0,0,0
+prt_dugn01.gat,0,0,0,0	monster	Skel Archer	80,10,0,0,0
+prt_dugn01.gat,0,0,0,0	monster	Skel Soldier	92,10,0,0,0
+
+//Prontera dungeon 2B
+prt_dugn02.gat,0,0,0,0	monster	Spore	78,25,0,0,0
+prt_dugn02.gat,0,0,0,0	monster	Willow	74,25,0,0,0
+prt_dugn02.gat,0,0,0,0	monster	Elder Willow	97,20,0,0,0
+prt_dugn02.gat,0,0,0,0	monster	Werewolf	86,1,7200000,3600000,1
+
+//Prontera dungeon 3B
+// unknown what should be here exactly, judging by map
+prt_dugn03.gat,0,0,0,0	monster	Seahorse	107,25,0,0,0
+prt_dugn03.gat,0,0,0,0	monster	Obeaune	108,15,0,0,0
+prt_dugn03.gat,0,0,0,0	monster	Marc	109,15,0,0,0
+prt_dugn03.gat,0,0,0,0	monster	Thara Frog	98,1,1800000,1800000,1
+// added thara frop to this map as a "miniboss", for fun mainly

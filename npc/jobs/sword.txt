@@ -1,0 +1,95 @@
+//===== Alpha Script =======================================
+//= Swordsman Quest Script
+//===== By: ================================================
+//= Prox
+//===== Modified By: =======================================
+//= taulin
+//===== Current Version: ===================================
+//= 0.5
+//===== Compatible With: ===================================
+//= Alpha Version 159+
+//===== Description: =======================================
+//= Quest Script for Swordsman Job Change
+//===== Additional Comments: ===============================
+//=
+//==========================================================
+
+prt_intr01.gat,129,99,7	script	Swordsman Tester	53,{
+
+mes "[ Swordsman Jobtester ]";
+mes "Ah, ready to change your job to Swordsman?";
+next;
+menu "Change to Swordsman",LSword,"Not Yet",LCancel;
+
+LSword:
+mes "[ Swordsman Jobtester ]";
+if(class !=0) goto Lnovice;
+if (readparam(55) == 10) goto Lbten;
+if(countitem(920)<10) goto Lnocow; //claw of wolf
+if(countitem(4001)<1) goto Lnolor; //Resident Cert
+if (Zeny < 200) goto Lnomoney;
+mes "Alright Swordsman it is!";
+delitem 920,10; //claw of wolf
+delitem 4001,1; //Resident Cert
+set Zeny, Zeny-200;
+jobchange 1;
+next;
+close;
+
+Lnocow:
+mes "You don't have enough Claws of Wolf.";
+next;
+close;
+
+Lnolor:
+mes "You don't have a Resident Certificate.";
+next;
+close;
+
+Lnomoney:
+mes "You don't have enough Zeny.";
+next;
+close;
+
+Lnovice:
+mes "You aren't a novice.";
+next;
+close;
+
+Lbten:
+mes "You need to be base level 10.";
+next;
+close;
+
+LCancel:
+mes "[ Swordsman Jobtester ]";
+mes "Alright if you say so..";
+next;
+close;
+
+}
+
+prt_intr01.gat,129,109,5	script	Swordsman Guider	54,{
+
+mes "[ Swordsman Jobguider ]";
+mes "Do you want to learn about Swordsman Job?";
+next;
+menu "Information",Linformation,"Not Yet",LCancel;
+
+Linformation:
+mes "[ Swordsman Jobguider ]";
+mes "Job Change Requirements:";
+mes "*Level 10";
+mes "*10 Claw of Wolves";
+mes "*Resident Certificate";
+mes "*200 zeny";
+next;
+close;
+
+LCancel:
+mes "[ Swordsman Jobguider ]";
+mes "So you say...";
+next;
+close;
+
+}
