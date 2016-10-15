@@ -5,7 +5,7 @@
 char *char_config = "conf/char_alpha.conf";
 
 char *grf_config = "conf/grf-files.txt";
-char *account_txt = "account.txt";
+char *account_txt = "save/account.txt";
 char *map_config = "conf/map_alpha.conf";
 
 char *char_config_bak = "conf/char_alpha.conf-bak";
