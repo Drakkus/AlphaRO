@@ -1,15 +1,23 @@
-** Disclaimer
-I did not coded this emulator. Read the following for more information.
+--------------------------------------------------------------
+Disclaimer
+--------------------------------------------------------------
+I did not coded this emulator.
+Read the following for more information.
 
-** Building
-- Run: apt-get install build-essential
-- Run: apt-get install zlib1g-dev
-- Go to root directory and run "make"
-
-** Running / Stop
-./alpha-start start
-./alpha-start stop
-
+--------------------------------------------------------------
+Building
+--------------------------------------------------------------
+Go to root directory and run:
+```
+$ apt-get install build-essential
+$ apt-get install zlib1g-dev
+$ make
+$ cc -o setupwizard setupwizard.c
+$ cc -o adduser adduser.c
+$ ./setupwizard
+$ ./alpha-start start
+$ ./alpha-start stop
+```
 --------------------------------------------------------------
 Alpha Taulin Build Readme
 --------------------------------------------------------------
