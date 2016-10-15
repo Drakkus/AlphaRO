@@ -2,7 +2,10 @@
 Disclaimer
 --------------------------------------------------------------
 I did not coded this emulator.
+
 Read the following for more information.
+
+Last update: 
 
 --------------------------------------------------------------
 Building
@@ -17,6 +20,11 @@ $ cc -o adduser adduser.c
 $ ./setupwizard
 $ ./alpha-start start
 $ ./alpha-start stop
+```
+
+To add users:
+```
+$ ./adduser
 ```
 --------------------------------------------------------------
 Alpha Taulin Build Readme
