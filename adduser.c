@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *account_txt = "../account.txt";
+char *account_txt = "save/account.txt";
 
 int main(int argc, char *argv[]) {
 
