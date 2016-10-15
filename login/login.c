@@ -40,7 +40,7 @@ char lan_char_ip[128];
 int subneti[4]; 
 int subnetmaski[4]; 
 
-char account_filename[1024] = "account.txt";
+char account_filename[1024] = "save/account.txt";
 char GM_account_filename[1024] = "conf/GM_account.txt";
 
 struct mmo_char_server server[MAX_SERVERS];
@@ -215,7 +215,7 @@ int mmo_auth_init(void)
 			strncpy(auth_dat[auth_num].lastlogin,lastlogin,24);
 			auth_dat[auth_num].sex = sex == 'S' ? 2 : sex=='M';
 
-			//ƒf[ƒ^‚ª‘«‚è‚È‚¢‚Æ‚«‚Ì•âŠ®
+			//ãƒ‡ãƒ¼ã‚¿ãŒè¶³ã‚Šãªã„ã¨ãã®è£œå®Œ
 			if(i>=6)
 				auth_dat[auth_num].logincount=logincount;
 			else
@@ -551,7 +551,7 @@ int parse_admin(int fd)
 	}
 	while(RFIFOREST(fd)>=2){
 		switch(RFIFOW(fd,0)){
-		case 0x7920:	{	// ƒAƒJƒEƒ“ƒgƒŠƒXƒg
+		case 0x7920:	{	// ã‚¢ã‚«ã‚¦ãƒ³ãƒˆãƒªã‚¹ãƒˆ
 				int st,ed,len;
 				if(RFIFOREST(fd)<11)
 					return 0;
@@ -575,7 +575,7 @@ int parse_admin(int fd)
 				WFIFOW(fd,2)=len;
 				WFIFOSET(fd,len);
 			}break;
-		case 0x7930: {	// ƒAƒJƒEƒ“ƒgì¬
+		case 0x7930: {	// ã‚¢ã‚«ã‚¦ãƒ³ãƒˆä½œæˆ
 				struct mmo_account ma;
 				if(RFIFOREST(fd)<4 || RFIFOREST(fd)<RFIFOW(fd,2))
 					return 0;
@@ -597,7 +597,7 @@ int parse_admin(int fd)
 				WFIFOSET(fd,28);
 				RFIFOSKIP(fd,RFIFOW(fd,2));
 			}break;
-		case 0x7932:	// ƒAƒJƒEƒ“ƒgíœ
+		case 0x7932:	// ã‚¢ã‚«ã‚¦ãƒ³ãƒˆå‰Šé™¤
 			WFIFOW(fd,0)=0x7933;
 			WFIFOW(fd,2)=1;
 			memcpy(WFIFOP(fd,4),RFIFOP(fd,4),24);
@@ -612,7 +612,7 @@ int parse_admin(int fd)
 			WFIFOSET(fd,28);
 			RFIFOSKIP(fd,RFIFOW(fd,2));
 			break;
-		case 0x7934:	// ƒpƒXƒ[ƒh•ÏX
+		case 0x7934:	// ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰å¤‰æ›´
 			WFIFOW(fd,0)=0x7935;
 			WFIFOW(fd,2)=1;
 			memcpy(WFIFOP(fd,4),RFIFOP(fd,4),24);
@@ -626,7 +626,7 @@ int parse_admin(int fd)
 			WFIFOSET(fd,28);
 			RFIFOSKIP(fd,RFIFOW(fd,2));
 			break;
-		case 0x7936:	// ƒoƒ“ó‘Ô•ÏX
+		case 0x7936:	// ãƒãƒ³çŠ¶æ…‹å¤‰æ›´
 			WFIFOW(fd,0)=0x7937;
 			WFIFOW(fd,2)=1;
 			memcpy(WFIFOP(fd,4),RFIFOP(fd,4),24);
