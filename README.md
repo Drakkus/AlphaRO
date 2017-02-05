@@ -11,20 +11,28 @@ v1.2.0 - 4th September 2008
 --------------------------------------------------------------
 Building
 --------------------------------------------------------------
-Go to root directory and run:
+I recommend you to use a Virtual Machine Linux to test with the client
+
+Type the following on terminal:
 ```
-$ sudo apt-get install build-essential
-$ sudo apt-get install zlib1g-dev
+$ cd 
+$ sudo apt-get install git build-essential zlib1g-dev
+$ git clone https://github.com/huenato/AlphaRO.git
+$ cd /AlphaRO
 $ make
 $ cc -o setupwizard setupwizard.c
 $ cc -o adduser adduser.c
 $ ./setupwizard
 $ ./adduser
 $ ./alpha-start start
+```
+
+To Stop:
+```
 $ ./alpha-start stop
 ```
 
-Setup Wizard: https://puu.sh/rKeo6/a6bf7a8982.png
+If the setupwizard wants adata, sdata... Just rewrite the file's name. You don't need those to run the server.
 
 Client:
 
