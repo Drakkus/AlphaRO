@@ -1,7 +1,4 @@
-cd 
-sudo apt-get install git build-essential zlib1g-dev
-git clone https://github.com/huenato/AlphaRO.git
-cd ./AlphaRO
+sudo apt-get install build-essential zlib1g-dev
 make
 cc -o setupwizard setupwizard.c
 cc -o adduser adduser.c
