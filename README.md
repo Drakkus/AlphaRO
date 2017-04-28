@@ -1,29 +1,42 @@
 --------------------------------------------------------------
-Disclaimer
+Note
 --------------------------------------------------------------
-I did not coded this emulator.
+
+I did not code this emulator.
 
 Read the following for more information.
-Works on Linux.
+Read the help.txt file for in-game commands.
 
-v1.2.0 - 4th September 2008
+Tested on Debian 8.
+
+--------------------------------------------------------------
+Downloads
+--------------------------------------------------------------
+
+1. Alpha Client: http://www.mediafire.com/file/a5tadpeezm5u77e/iRO_Alpha_Client.7z
+2. Emulator: Check Building section
 
 --------------------------------------------------------------
 Building
 --------------------------------------------------------------
-I recommend you to use a Virtual Machine Linux to test with the client
+
+I recommend you to use a Virtual Machine to build the emulator
 
 Type the following on terminal:
 ```
 $ cd 
 $ sudo apt-get install git build-essential zlib1g-dev
 $ git clone https://github.com/huenato/AlphaRO.git
-$ cd /AlphaRO
+$ cd ./AlphaRO
 $ make
 $ cc -o setupwizard setupwizard.c
 $ cc -o adduser adduser.c
 $ ./setupwizard
 $ ./adduser
+```
+
+To Start emulator:
+```
 $ ./alpha-start start
 ```
 
@@ -32,23 +45,23 @@ To Stop:
 $ ./alpha-start stop
 ```
 
-If the setupwizard wants adata, sdata... Just rewrite the file's name. You don't need those to run the server.
+If the setupwizard wants adata.grf, sdata.grf just rewrite the filename. 
+You don't need those to run the server.
 
-Client:
+--------------------------------------------------------------
+Connecting
+--------------------------------------------------------------
 
-1. Open RagExe.exe with a hex editor and modify the IP on block EBAF8-EBB06 (15 bytes)
-2. Set the IP to your server's IP.
-3. Open Setup.exe and set your settings
-4. Set 16 bits color: https://puu.sh/rKcmv/369960bd0e.png
-5. Run the command: "RagExe.exe ragpassword"
+1. Download the client and extract it
+2. Open RagExe.exe with a hex editor and modify the IP on block EBAF8-EBB06 (15 bytes)
+3. Set the IP to your emulator's IP.
+4. Open Setup.exe and set your settings
+5. If you use Windows 10, right-click RagExe.exe and open it's properties
+	Select compatibility tab and check reduced color mode
+	Select 16-bit color
+6. Run the command: "RagExe.exe ragpassword"
 
 If anything goes wrong, close RagExe.exe with Task Manager.
-
---------------------------------------------------------------
-Downloads
---------------------------------------------------------------
-1. Client: http://www.mediafire.com/file/a5tadpeezm5u77e/iRO_Alpha_Client.7z
-2. Emulator: https://github.com/huenato/AlphaEmu/releases
 
 --------------------------------------------------------------
 Alpha Taulin Build Readme
@@ -127,9 +140,8 @@ I am hoping that at v1.2.0 or v1.3.0 I will have the majority
 of bugs fixed server side, with the v2.X.0 release coming
 once most of the unnecessary server code has been removed.
 
---------------------------------------------------------------
---------------------------------------------------------------
+v1.2.0 - 4th September 2008
+
 Dev Taulin Nakima
---------------------------------------------------------------
 
 <img src="https://puu.sh/rKfTk/475eacf4f1.bmp"/>
