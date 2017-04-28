@@ -122,7 +122,6 @@ int main() {
 	printf("Enter your path to adata.grf: "); // adata);
     scanf("%s", &adata);*/
 
-
 	//Set file pointer back to 0
 	rewind(file);
 

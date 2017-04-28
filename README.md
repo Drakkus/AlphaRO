@@ -23,23 +23,26 @@ Building
 
 I recommend you to use a Virtual Machine to build the emulator
 
+Install git:
+```
+$ sudo apt-get install git
+```
+
 Type the following on terminal:
 ```
-$ cd 
-$ sudo apt-get install git
+$ cd
 $ git clone https://github.com/huenato/AlphaRO.git
-$ sh AlphaRO/build.sh
+$ cd ./AlphaRO
+$ sh build.sh
 ```
 
 To Start emulator:
 ```
-$ cd
 $ ./alpha-start start
 ```
 
 To Stop:
 ```
-$ cd
 $ ./alpha-start stop
 ```
 
