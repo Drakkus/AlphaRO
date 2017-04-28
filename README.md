@@ -5,6 +5,7 @@ Note
 I did not code this emulator.
 
 Read the following for more information.
+
 Read the help.txt file for in-game commands.
 
 Tested on Debian 8.
@@ -46,6 +47,7 @@ $ ./alpha-start stop
 ```
 
 If the setupwizard wants adata.grf, sdata.grf just rewrite the filename. 
+
 You don't need those to run the server.
 
 --------------------------------------------------------------
@@ -57,7 +59,9 @@ Connecting
 3. Set the IP to your emulator's IP.
 4. Open Setup.exe and set your settings
 5. If you use Windows 10, right-click RagExe.exe and open it's properties
+
 	Select compatibility tab and check reduced color mode
+	
 	Select 16-bit color
 6. Run the command: "RagExe.exe ragpassword"
 
