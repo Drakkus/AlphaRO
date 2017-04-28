@@ -28,9 +28,9 @@ int main() {
 	char sex[2];
 	char go_on[2];
 
-	char data[200];
-	char sdata[200];
-	char adata[200];
+	char data[200] = "data.grf";
+	char sdata[200] = "sdata.grf";
+	char adata[200] = "adata.grf";
 	
 	printf("Welcome to the Alpha Configuration Wizard!\n");
 	printf("This will help you configure Alpha with ease.\n\n");
@@ -115,12 +115,12 @@ int main() {
 
 	printf("Enter your IP: [%s]: ", IP);
 	scanf("%s", &IP);
-	printf("Enter your path to data.grf: "); // data);
+	/*printf("Enter your path to data.grf: "); // data);
 	scanf("%s", &data);
 	printf("Enter your path to sdata.grf: "); // sdata);
-        scanf("%s", &sdata);
+    scanf("%s", &sdata);
 	printf("Enter your path to adata.grf: "); // adata);
-        scanf("%s", &adata);
+    scanf("%s", &adata);*/
 
 
 	//Set file pointer back to 0

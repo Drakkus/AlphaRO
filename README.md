@@ -26,24 +26,20 @@ I recommend you to use a Virtual Machine to build the emulator
 Type the following on terminal:
 ```
 $ cd 
-$ sudo apt-get install git build-essential zlib1g-dev
+$ sudo apt-get install git
 $ git clone https://github.com/huenato/AlphaRO.git
-$ cd ./AlphaRO
-$ make
-$ cc -o setupwizard setupwizard.c
-$ cc -o adduser adduser.c
-$ ./setupwizard
-$ ./adduser
-$ chmod +x alpha-start
+$ sh AlphaRO/build.sh
 ```
 
 To Start emulator:
 ```
+$ cd
 $ ./alpha-start start
 ```
 
 To Stop:
 ```
+$ cd
 $ ./alpha-start stop
 ```
 
