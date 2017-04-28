@@ -46,10 +46,6 @@ To Stop:
 $ ./alpha-start stop
 ```
 
-If the setupwizard wants adata.grf, sdata.grf just rewrite the filename. 
-
-You don't need those to run the server.
-
 --------------------------------------------------------------
 Connecting
 --------------------------------------------------------------
