@@ -34,6 +34,7 @@ $ cc -o setupwizard setupwizard.c
 $ cc -o adduser adduser.c
 $ ./setupwizard
 $ ./adduser
+$ chmod +x alpha-start
 ```
 
 To Start emulator:
