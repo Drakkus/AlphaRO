@@ -8,7 +8,7 @@ Read the following for more information.
 
 Read the help.txt file for in-game commands.
 
-Tested on Debian 8.
+Tested on Debian 8.7.1
 
 --------------------------------------------------------------
 Downloads
@@ -28,7 +28,7 @@ Install git:
 $ sudo apt-get install git
 ```
 
-Type the following on terminal:
+Type the following on terminal and follow it's instructions:
 ```
 $ cd
 $ git clone https://github.com/huenato/AlphaRO.git
